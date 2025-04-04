@@ -50,7 +50,6 @@ export default function ProjectPage({
       try {
         setLoading(true);
         const entry = await client.getEntry(projectId);
-        console.log(entry);
 
         if (entry && entry.fields) {
           const projectData = {

@@ -164,7 +164,6 @@ export default function BlogPage() {
                     : "hover:bg-white"
                 }`}
                 onClick={() => {
-                  console.log("Setting category to:", category);
                   setSelectedCategory(category);
                 }}
               >

@@ -27,7 +27,6 @@ export default function PortfolioPage() {
         const entries = await client.getEntries({
           content_type: "portfolio",
         });
-        console.log(entries);
         const fetchedPortfolios = entries.items.map((entry) => ({
           id: entry.sys.id,
           name: entry.fields.title,

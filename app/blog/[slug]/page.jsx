@@ -64,10 +64,8 @@ export default function BlogPostPage({ params }) {
         });
 
         if (matchingBlog) {
-          console.log("Found matching blog:", matchingBlog.title);
           setCurrentBlog(matchingBlog);
         } else {
-          console.log("No matching blog found, using first blog as fallback");
           setCurrentBlog(fetchedData[0]);
         }
       } catch (err) {
