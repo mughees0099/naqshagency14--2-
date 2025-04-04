@@ -1,37 +1,48 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import Image from "next/image"
-import Link from "next/link"
-import Navbar from "@/components/navbar"
-import AnimatedButton from "@/components/animated-button"
-import SectionHeading from "@/components/section-heading"
-import AnimatedCard from "@/components/animated-card"
-import ScrollReveal from "@/components/scroll-reveal"
-import PricingCard from "@/components/pricing-card"
-import PaymentModal from "@/components/payment-modal"
-import { useAnimation } from "framer-motion"
-import { useInView } from "react-intersection-observer"
-import { ArrowRight, Zap, Palette, Code, Search, Award, Users } from "lucide-react"
-import Footer from "@/components/footer"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import Navbar from "@/components/navbar";
+import AnimatedButton from "@/components/animated-button";
+import SectionHeading from "@/components/section-heading";
+import AnimatedCard from "@/components/animated-card";
+import ScrollReveal from "@/components/scroll-reveal";
+import PricingCard from "@/components/pricing-card";
+import PaymentModal from "@/components/payment-modal";
+import { useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import {
+  ArrowRight,
+  Zap,
+  Palette,
+  Code,
+  Search,
+  Award,
+  Users,
+} from "lucide-react";
+import Footer from "@/components/footer";
 
 export default function Home() {
-  const [showPaymentModal, setShowPaymentModal] = useState(false)
-  const [selectedPackage, setSelectedPackage] = useState({ name: "", price: "" })
+  const [showPaymentModal, setShowPaymentModal] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState({
+    name: "",
+    price: "",
+  });
 
   // Process section animation
   const [processRef, processInView] = useInView({
     triggerOnce: true,
     threshold: 0.2,
-  })
+  });
 
-  const processControls = useAnimation()
+  const processControls = useAnimation();
 
   useEffect(() => {
     if (processInView) {
-      processControls.start("visible")
+      processControls.start("visible");
     }
-  }, [processControls, processInView])
+  }, [processControls, processInView]);
 
   const lineVariants = {
     hidden: { width: "0%" },
@@ -42,12 +53,15 @@ export default function Home() {
         ease: "easeInOut",
       },
     },
-  }
+  };
 
-  const handleOpenPaymentModal = (packageName: string, packagePrice: string) => {
-    setSelectedPackage({ name: packageName, price: packagePrice })
-    setShowPaymentModal(true)
-  }
+  const handleOpenPaymentModal = (
+    packageName: string,
+    packagePrice: string
+  ) => {
+    setSelectedPackage({ name: packageName, price: packagePrice });
+    setShowPaymentModal(true);
+  };
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -83,11 +97,13 @@ export default function Home() {
                 <span
                   className="gradient-text relative inline-block"
                   style={{
-                    background: "linear-gradient(90deg, #e5792c 0%, #f7a45c 100%)",
+                    background:
+                      "linear-gradient(90deg, #e5792c 0%, #f7a45c 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                     textShadow: "0 1px 2px rgba(229, 121, 44, 0.1)",
+                    paddingBottom: "20px",
                   }}
                 >
                   Branding
@@ -96,8 +112,8 @@ export default function Home() {
               </h1>
 
               <p className="text-lg md:text-xl text-gray-600 animate-slide-up delay-100">
-                We craft strategic brand identities and digital experiences that transform businesses and drive
-                meaningful growth.
+                We craft strategic brand identities and digital experiences that
+                transform businesses and drive meaningful growth.
               </p>
 
               <div className="flex flex-wrap gap-4 animate-slide-up delay-200">
@@ -134,7 +150,12 @@ export default function Home() {
 
             <div className="relative">
               <div className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden animate-scale-in">
-                <Image src="/placeholder.svg?height=500&width=500" alt="Naqsh Agency" fill className="object-cover" />
+                <Image
+                  src="/placeholder.svg?height=500&width=500"
+                  alt="Naqsh Agency"
+                  fill
+                  className="object-cover"
+                />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
 
@@ -145,7 +166,9 @@ export default function Home() {
                     </div>
                     <div>
                       <h3 className="font-bold">Strategic Branding</h3>
-                      <p className="text-sm text-gray-600">Transform your business identity</p>
+                      <p className="text-sm text-gray-600">
+                        Transform your business identity
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -162,7 +185,9 @@ export default function Home() {
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto">
           <div className="text-center mb-8">
-            <p className="text-gray-500 text-sm">TRUSTED BY INNOVATIVE COMPANIES</p>
+            <p className="text-gray-500 text-sm">
+              TRUSTED BY INNOVATIVE COMPANIES
+            </p>
           </div>
 
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
@@ -219,7 +244,11 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <ScrollReveal>
-              <AnimatedButton href="/services" variant="outline" className="group">
+              <AnimatedButton
+                href="/services"
+                variant="outline"
+                className="group"
+              >
                 <span className="relative z-10">
                   Explore All Services{" "}
                   <ArrowRight className="ml-2 w-4 h-4 inline-block transition-transform group-hover:translate-x-1" />
@@ -237,10 +266,13 @@ export default function Home() {
         <div className="container mx-auto">
           <ScrollReveal>
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-4xl font-bold mb-4">The Hard Truth About Branding</h2>
+              <h2 className="text-4xl font-bold mb-4">
+                The Hard Truth About Branding
+              </h2>
               <div className="w-24 h-1 bg-[#e5792c] mx-auto mb-6"></div>
               <p className="text-lg text-gray-600">
-                Most startups and businesses struggle with branding because of these common mistakes
+                Most startups and businesses struggle with branding because of
+                these common mistakes
               </p>
             </div>
           </ScrollReveal>
@@ -254,12 +286,15 @@ export default function Home() {
                     <span className="text-3xl font-bold">80%</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
-                    of startups <span className="text-[#e5792c]">fail</span> in the first 5 years
+                    of startups <span className="text-[#e5792c]">fail</span> in
+                    the first 5 years
                   </h3>
                 </div>
                 <p className="text-gray-300 text-lg mb-6">
-                  Weak branding is a <span className="text-[#e5792c] font-bold">major factor</span> in business failure.
-                  Most companies struggle with these critical branding mistakes:
+                  Weak branding is a{" "}
+                  <span className="text-[#e5792c] font-bold">major factor</span>{" "}
+                  in business failure. Most companies struggle with these
+                  critical branding mistakes:
                 </p>
               </div>
             </div>
@@ -283,10 +318,13 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Inconsistent Brand Identity</h3>
+                      <h3 className="text-xl font-bold mb-2">
+                        Inconsistent Brand Identity
+                      </h3>
                       <p className="text-gray-600">
-                        Customers can't recognize or trust your business when your visual identity changes across
-                        different platforms and touchpoints.
+                        Customers can't recognize or trust your business when
+                        your visual identity changes across different platforms
+                        and touchpoints.
                       </p>
                     </div>
                   </div>
@@ -311,10 +349,13 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Outdated Website & Design</h3>
+                      <h3 className="text-xl font-bold mb-2">
+                        Outdated Website & Design
+                      </h3>
                       <p className="text-gray-600">
-                        Your outdated online presence is actively driving away potential customers and damaging your
-                        professional credibility.
+                        Your outdated online presence is actively driving away
+                        potential customers and damaging your professional
+                        credibility.
                       </p>
                     </div>
                   </div>
@@ -339,10 +380,13 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">Lack of Differentiation</h3>
+                      <h3 className="text-xl font-bold mb-2">
+                        Lack of Differentiation
+                      </h3>
                       <p className="text-gray-600">
-                        When you blend in with competitors, you become invisible to potential customers who can't see
-                        why they should choose you.
+                        When you blend in with competitors, you become invisible
+                        to potential customers who can't see why they should
+                        choose you.
                       </p>
                     </div>
                   </div>
@@ -369,15 +413,20 @@ export default function Home() {
                     <div>
                       <h3 className="text-xl font-bold mb-2">Weak Messaging</h3>
                       <p className="text-gray-600">
-                        Confusing taglines and inconsistent brand voice are actively pushing potential customers toward
-                        your competitors.
+                        Confusing taglines and inconsistent brand voice are
+                        actively pushing potential customers toward your
+                        competitors.
                       </p>
                     </div>
                   </div>
                 </div>
               </ScrollReveal>
 
-              <ScrollReveal animation="slide-up" delay={500} className="md:col-span-2">
+              <ScrollReveal
+                animation="slide-up"
+                delay={500}
+                className="md:col-span-2"
+              >
                 <div className="bg-gradient-to-r from-[#171717] to-[#2a2a2a] p-6 rounded-lg shadow-md text-white">
                   <div className="flex flex-col md:flex-row items-center">
                     <div className="w-16 h-16 bg-[#e5792c]/20 rounded-full flex items-center justify-center mb-4 md:mb-0 md:mr-6">
@@ -397,11 +446,14 @@ export default function Home() {
                       </svg>
                     </div>
                     <div>
-                      <h3 className="text-xl font-bold mb-2">DIY Branding Is Costing You Money</h3>
+                      <h3 className="text-xl font-bold mb-2">
+                        DIY Branding Is Costing You Money
+                      </h3>
                       <p className="text-gray-300">
-                        Amateur logos and cheap design aren't saving you money—they're costing you credibility,
-                        customers, and revenue. Every day you wait with subpar branding is another day of lost
-                        opportunities.
+                        Amateur logos and cheap design aren't saving you
+                        money—they're costing you credibility, customers, and
+                        revenue. Every day you wait with subpar branding is
+                        another day of lost opportunities.
                       </p>
                     </div>
                   </div>
@@ -412,8 +464,9 @@ export default function Home() {
             <ScrollReveal animation="fade" delay={600}>
               <div className="mt-8 text-center">
                 <p className="text-lg text-gray-600 italic max-w-3xl mx-auto">
-                  "We get it. Seeing your brand struggle is frustrating. That's why we help businesses transform into
-                  strong, unforgettable brands."
+                  "We get it. Seeing your brand struggle is frustrating. That's
+                  why we help businesses transform into strong, unforgettable
+                  brands."
                 </p>
               </div>
             </ScrollReveal>
@@ -431,7 +484,9 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal animation="slide-left">
               <div className="bg-white p-8 rounded-xl shadow-lg border-l-4 border-[#e5792c]">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Does This Sound Familiar?</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Does This Sound Familiar?
+                </h2>
                 <div className="w-24 h-1 bg-[#e5792c] mb-8"></div>
 
                 <div className="space-y-6">
@@ -451,8 +506,10 @@ export default function Home() {
                       </svg>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-bold">You've spent months (or years) building your business</span>, but it
-                      still doesn't stand out in a crowded marketplace.
+                      <span className="font-bold">
+                        You've spent months (or years) building your business
+                      </span>
+                      , but it still doesn't stand out in a crowded marketplace.
                     </p>
                   </div>
 
@@ -472,8 +529,10 @@ export default function Home() {
                       </svg>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-bold">You feel embarrassed sharing your brand materials</span> because they
-                      look amateur compared to your competitors.
+                      <span className="font-bold">
+                        You feel embarrassed sharing your brand materials
+                      </span>{" "}
+                      because they look amateur compared to your competitors.
                     </p>
                   </div>
 
@@ -493,8 +552,10 @@ export default function Home() {
                       </svg>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-bold">Your marketing efforts aren't delivering results</span> because people
-                      don't remember or recognize your brand.
+                      <span className="font-bold">
+                        Your marketing efforts aren't delivering results
+                      </span>{" "}
+                      because people don't remember or recognize your brand.
                     </p>
                   </div>
 
@@ -514,16 +575,22 @@ export default function Home() {
                       </svg>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-bold">You're losing sales to competitors</span> with stronger branding and a
-                      better online presence.
+                      <span className="font-bold">
+                        You're losing sales to competitors
+                      </span>{" "}
+                      with stronger branding and a better online presence.
                     </p>
                   </div>
                 </div>
 
                 <div className="mt-8 p-6 bg-[#171717] text-white rounded-lg">
                   <p className="text-lg">
-                    💔 <span className="font-bold">It's frustrating. It's exhausting.</span> And worst of all… it's
-                    holding your business back from the success you deserve.
+                    💔{" "}
+                    <span className="font-bold">
+                      It's frustrating. It's exhausting.
+                    </span>{" "}
+                    And worst of all… it's holding your business back from the
+                    success you deserve.
                   </p>
                 </div>
               </div>
@@ -533,7 +600,9 @@ export default function Home() {
               <div className="bg-white p-8 rounded-xl shadow-lg relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-[#e5792c]/5 rounded-full transform translate-x-1/3 -translate-y-1/3"></div>
 
-                <h3 className="text-2xl font-bold mb-6 relative z-10">Imagine a Brand That...</h3>
+                <h3 className="text-2xl font-bold mb-6 relative z-10">
+                  Imagine a Brand That...
+                </h3>
 
                 <div className="space-y-6 relative z-10">
                   <div className="flex items-start">
@@ -552,9 +621,12 @@ export default function Home() {
                       </svg>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-bold text-lg">Instantly attracts the right customers</span>
+                      <span className="font-bold text-lg">
+                        Instantly attracts the right customers
+                      </span>
                       <br />
-                      No more chasing clients who aren't a good fit or explaining what makes you different.
+                      No more chasing clients who aren't a good fit or
+                      explaining what makes you different.
                     </p>
                   </div>
 
@@ -574,9 +646,12 @@ export default function Home() {
                       </svg>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-bold text-lg">Looks modern, premium, and unforgettable</span>
+                      <span className="font-bold text-lg">
+                        Looks modern, premium, and unforgettable
+                      </span>
                       <br />
-                      Stand out in a crowded marketplace with confidence and command higher prices.
+                      Stand out in a crowded marketplace with confidence and
+                      command higher prices.
                     </p>
                   </div>
 
@@ -596,9 +671,12 @@ export default function Home() {
                       </svg>
                     </div>
                     <p className="text-gray-700">
-                      <span className="font-bold text-lg">Makes marketing effortless</span>
+                      <span className="font-bold text-lg">
+                        Makes marketing effortless
+                      </span>
                       <br />
-                      Because people already trust and recognize your brand before you even pitch.
+                      Because people already trust and recognize your brand
+                      before you even pitch.
                     </p>
                   </div>
                 </div>
@@ -606,17 +684,29 @@ export default function Home() {
                 <div className="mt-10 relative z-10">
                   <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mb-8">
                     <div className="flex items-start">
-                      <div className="text-4xl text-[#e5792c] font-serif mr-4">❝</div>
+                      <div className="text-4xl text-[#e5792c] font-serif mr-4">
+                        ❝
+                      </div>
                       <p className="text-gray-700 italic">
                         We don't just design—we build brands that{" "}
-                        <span className="font-bold">feel right, stand out, and grow your business</span>. Start with our
-                        free brand audit to see where you stand.
+                        <span className="font-bold">
+                          feel right, stand out, and grow your business
+                        </span>
+                        . Start with our free brand audit to see where you
+                        stand.
                       </p>
                     </div>
                   </div>
 
-                  <AnimatedButton href="/brand-audit" variant="primary" size="lg" className="w-full group">
-                    <span className="relative z-10">Conduct Free Brand Audit</span>
+                  <AnimatedButton
+                    href="/brand-audit"
+                    variant="primary"
+                    size="lg"
+                    className="w-full group"
+                  >
+                    <span className="relative z-10">
+                      Conduct Free Brand Audit
+                    </span>
                     <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
                     <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
                   </AnimatedButton>
@@ -640,8 +730,9 @@ export default function Home() {
               <span className="absolute -bottom-3 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-[#e5792c]/30 via-[#e5792c] to-[#e5792c]/30 rounded-full"></span>
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Choose the perfect branding package to elevate your business and stand out from the competition with our
-              professionally crafted solutions.
+              Choose the perfect branding package to elevate your business and
+              stand out from the competition with our professionally crafted
+              solutions.
             </p>
           </div>
 
@@ -662,12 +753,16 @@ export default function Home() {
                 ]}
                 ctaLink="/payment"
                 className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 pricing-card-essential"
-                setShowPaymentModal={() => handleOpenPaymentModal("Essential Plan", "$4,998")}
+                setShowPaymentModal={() =>
+                  handleOpenPaymentModal("Essential Plan", "$4,998")
+                }
                 urgencyIndicator={
                   <div className="mt-4 mb-2 flex justify-center">
                     <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
                       <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                      <span className="text-xs text-red-600 font-medium">Only 2 spots left this month</span>
+                      <span className="text-xs text-red-600 font-medium">
+                        Only 2 spots left this month
+                      </span>
                     </div>
                   </div>
                 }
@@ -694,12 +789,16 @@ export default function Home() {
                 ctaLink="/payment"
                 popular={true}
                 className="transform transition-all duration-500 hover:-translate-y-2 border-2 border-[#e5792c] h-full pricing-card-business"
-                setShowPaymentModal={() => handleOpenPaymentModal("Business Plan", "$9,898")}
+                setShowPaymentModal={() =>
+                  handleOpenPaymentModal("Business Plan", "$9,898")
+                }
                 urgencyIndicator={
                   <div className="mt-4 mb-2 flex justify-center">
                     <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
                       <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                      <span className="text-xs text-red-600 font-medium">Only 3 spots left this month</span>
+                      <span className="text-xs text-red-600 font-medium">
+                        Only 3 spots left this month
+                      </span>
                     </div>
                   </div>
                 }
@@ -727,7 +826,9 @@ export default function Home() {
                 ]}
                 ctaLink="/contact"
                 className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2"
-                setShowPaymentModal={() => handleOpenPaymentModal("Enterprise Plan", "Let's Talk")}
+                setShowPaymentModal={() =>
+                  handleOpenPaymentModal("Enterprise Plan", "Let's Talk")
+                }
                 isEnterprise={true}
               />
             </div>
@@ -751,16 +852,26 @@ export default function Home() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                     >
-                      <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                      <rect
+                        x="3"
+                        y="3"
+                        width="18"
+                        height="18"
+                        rx="2"
+                        ry="2"
+                      ></rect>
                       <path d="M9 3v18"></path>
                       <path d="M14 15l3-3-3-3"></path>
                     </svg>
                   </div>
                   <div>
-                    <h3 className="text-2xl font-bold text-[#171717] mb-2">White Labeled Services</h3>
+                    <h3 className="text-2xl font-bold text-[#171717] mb-2">
+                      White Labeled Services
+                    </h3>
                     <p className="text-gray-600 max-w-md">
-                      Need to keep our partnership confidential? We offer white labeled services for clients who prefer
-                      not to disclose our agency's involvement with their brand.
+                      Need to keep our partnership confidential? We offer white
+                      labeled services for clients who prefer not to disclose
+                      our agency's involvement with their brand.
                     </p>
                   </div>
                 </div>
@@ -771,7 +882,9 @@ export default function Home() {
                   variant="primary"
                   className="whitespace-nowrap group"
                 >
-                  <span className="relative z-10">Schedule a Private Meeting</span>
+                  <span className="relative z-10">
+                    Schedule a Private Meeting
+                  </span>
                   <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
                   <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
                 </AnimatedButton>
@@ -807,9 +920,12 @@ export default function Home() {
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-2xl font-bold mb-2">Brand Identity Redesign</h3>
+                  <h3 className="text-2xl font-bold mb-2">
+                    Brand Identity Redesign
+                  </h3>
                   <p className="text-white/80 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    Complete brand overhaul for a tech startup that needed to reposition itself in the market.
+                    Complete brand overhaul for a tech startup that needed to
+                    reposition itself in the market.
                   </p>
                   <Link
                     href="/portfolio/1"
@@ -834,9 +950,12 @@ export default function Home() {
                 </div>
 
                 <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
-                  <h3 className="text-2xl font-bold mb-2">E-commerce Website Redesign</h3>
+                  <h3 className="text-2xl font-bold mb-2">
+                    E-commerce Website Redesign
+                  </h3>
                   <p className="text-white/80 mb-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                    Modern, responsive e-commerce website with enhanced user experience and conversion optimization.
+                    Modern, responsive e-commerce website with enhanced user
+                    experience and conversion optimization.
                   </p>
                   <Link
                     href="/portfolio/2"
@@ -851,7 +970,11 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <ScrollReveal>
-              <AnimatedButton href="/portfolio" variant="primary" className="group">
+              <AnimatedButton
+                href="/portfolio"
+                variant="primary"
+                className="group"
+              >
                 <span className="relative z-10">View All Projects</span>
                 <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
                 <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
@@ -880,9 +1003,12 @@ export default function Home() {
                 <div className="w-16 h-16 bg-[#e5792c] rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
                   1
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-center">Discovery</h3>
+                <h3 className="text-xl font-bold mb-2 text-center">
+                  Discovery
+                </h3>
                 <p className="text-gray-600 text-center">
-                  We dive deep to understand your business, audience, and goals to create a strategic foundation.
+                  We dive deep to understand your business, audience, and goals
+                  to create a strategic foundation.
                 </p>
               </div>
 
@@ -892,7 +1018,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-center">Strategy</h3>
                 <p className="text-gray-600 text-center">
-                  We develop a comprehensive brand strategy that positions you uniquely in the market.
+                  We develop a comprehensive brand strategy that positions you
+                  uniquely in the market.
                 </p>
               </div>
 
@@ -902,7 +1029,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-center">Design</h3>
                 <p className="text-gray-600 text-center">
-                  Our creative team crafts visual elements that bring your brand strategy to life.
+                  Our creative team crafts visual elements that bring your brand
+                  strategy to life.
                 </p>
               </div>
 
@@ -910,9 +1038,12 @@ export default function Home() {
                 <div className="w-16 h-16 bg-[#e5792c] rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
                   4
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-center">Development</h3>
+                <h3 className="text-xl font-bold mb-2 text-center">
+                  Development
+                </h3>
                 <p className="text-gray-600 text-center">
-                  We build and implement your brand assets across all relevant platforms and touchpoints.
+                  We build and implement your brand assets across all relevant
+                  platforms and touchpoints.
                 </p>
               </div>
 
@@ -922,7 +1053,8 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-center">Launch</h3>
                 <p className="text-gray-600 text-center">
-                  We deliver a complete brand package and guide you through successful implementation.
+                  We deliver a complete brand package and guide you through
+                  successful implementation.
                 </p>
               </div>
             </div>
@@ -948,10 +1080,14 @@ export default function Home() {
                 <div className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-50 via-white to-white opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"></div>
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[#e5792c]/5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">"</div>
+                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">
+                    "
+                  </div>
                   <p className="text-gray-700 mb-6 relative z-20">
-                    Working with Naqsh Agency transformed our brand completely. Their strategic approach and creative
-                    solutions helped us stand out in a competitive market and achieve our business goals.
+                    Working with Naqsh Agency transformed our brand completely.
+                    Their strategic approach and creative solutions helped us
+                    stand out in a competitive market and achieve our business
+                    goals.
                   </p>
                   <div className="flex items-center z-20 relative">
                     <div className="w-12 h-12 rounded-full mr-4 overflow-hidden relative">
@@ -986,11 +1122,14 @@ export default function Home() {
                 <div className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-50 via-white to-white opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"></div>
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[#e5792c]/5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">"</div>
+                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">
+                    "
+                  </div>
                   <p className="text-gray-700 mb-6 relative z-20">
-                    The team at Naqsh Agency exceeded our expectations. Their attention to detail and understanding of
-                    our industry resulted in a website that not only looks great but also converts visitors into
-                    customers.
+                    The team at Naqsh Agency exceeded our expectations. Their
+                    attention to detail and understanding of our industry
+                    resulted in a website that not only looks great but also
+                    converts visitors into customers.
                   </p>
                   <div className="flex items-center z-20 relative">
                     <div className="w-12 h-12 rounded-full mr-4 overflow-hidden relative">
@@ -1003,7 +1142,9 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900">Michael Chen</h4>
-                      <p className="text-sm text-gray-500">Marketing Director, Innovate Corp</p>
+                      <p className="text-sm text-gray-500">
+                        Marketing Director, Innovate Corp
+                      </p>
                     </div>
                   </div>
                   <div className="absolute bottom-6 right-6 flex z-20">
@@ -1025,10 +1166,14 @@ export default function Home() {
                 <div className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-50 via-white to-white opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"></div>
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[#e5792c]/5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">"</div>
+                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">
+                    "
+                  </div>
                   <p className="text-gray-700 mb-6 relative z-20">
-                    I was impressed by how quickly Naqsh Agency understood our vision. They delivered a brand identity
-                    that perfectly captures our values and resonates with our target audience. Highly recommended!
+                    I was impressed by how quickly Naqsh Agency understood our
+                    vision. They delivered a brand identity that perfectly
+                    captures our values and resonates with our target audience.
+                    Highly recommended!
                   </p>
                   <div className="flex items-center z-20 relative">
                     <div className="w-12 h-12 rounded-full mr-4 overflow-hidden relative">
@@ -1040,8 +1185,12 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900">Emma Rodriguez</h4>
-                      <p className="text-sm text-gray-500">Founder, GreenLife</p>
+                      <h4 className="font-bold text-gray-900">
+                        Emma Rodriguez
+                      </h4>
+                      <p className="text-sm text-gray-500">
+                        Founder, GreenLife
+                      </p>
                     </div>
                   </div>
                   <div className="absolute bottom-6 right-6 flex z-20">
@@ -1066,10 +1215,14 @@ export default function Home() {
                 <div className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-50 via-white to-white opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"></div>
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[#e5792c]/5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">"</div>
+                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">
+                    "
+                  </div>
                   <p className="text-gray-700 mb-6 relative z-20">
-                    The SEO strategy implemented by Naqsh Agency increased our organic traffic by 200% in just three
-                    months. Their data-driven approach and continuous optimization have been key to our online success.
+                    The SEO strategy implemented by Naqsh Agency increased our
+                    organic traffic by 200% in just three months. Their
+                    data-driven approach and continuous optimization have been
+                    key to our online success.
                   </p>
                   <div className="flex items-center z-20 relative">
                     <div className="w-12 h-12 rounded-full mr-4 overflow-hidden relative">
@@ -1082,7 +1235,9 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900">David Kim</h4>
-                      <p className="text-sm text-gray-500">Digital Marketing Director, ShopEasy</p>
+                      <p className="text-sm text-gray-500">
+                        Digital Marketing Director, ShopEasy
+                      </p>
                     </div>
                   </div>
                   <div className="absolute bottom-6 right-6 flex z-20">
@@ -1104,10 +1259,14 @@ export default function Home() {
                 <div className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-50 via-white to-white opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"></div>
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[#e5792c]/5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">"</div>
+                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">
+                    "
+                  </div>
                   <p className="text-gray-700 mb-6 relative z-20">
-                    Partnering with Naqsh Agency was the best decision for our rebrand. They delivered a comprehensive
-                    brand strategy and visual identity that has completely transformed how our customers perceive us.
+                    Partnering with Naqsh Agency was the best decision for our
+                    rebrand. They delivered a comprehensive brand strategy and
+                    visual identity that has completely transformed how our
+                    customers perceive us.
                   </p>
                   <div className="flex items-center z-20 relative">
                     <div className="w-12 h-12 rounded-full mr-4 overflow-hidden relative">
@@ -1119,8 +1278,12 @@ export default function Home() {
                       />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900">Jennifer Taylor</h4>
-                      <p className="text-sm text-gray-500">CEO, CloudSolutions</p>
+                      <h4 className="font-bold text-gray-900">
+                        Jennifer Taylor
+                      </h4>
+                      <p className="text-sm text-gray-500">
+                        CEO, CloudSolutions
+                      </p>
                     </div>
                   </div>
                   <div className="absolute bottom-6 right-6 flex z-20">
@@ -1142,10 +1305,14 @@ export default function Home() {
                 <div className="bg-white rounded-xl shadow-lg p-8 relative overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group">
                   <div className="absolute inset-0 bg-gradient-to-r from-orange-50 via-white to-white opacity-0 group-hover:opacity-100 transition-all duration-500 pointer-events-none"></div>
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[#e5792c]/5 rounded-full transform translate-x-8 -translate-y-8"></div>
-                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">"</div>
+                  <div className="text-[#e5792c] text-4xl font-serif mb-4 z-20">
+                    "
+                  </div>
                   <p className="text-gray-700 mb-6 relative z-20">
-                    Our partnership with Naqsh Agency has been a game-changer for our business. Their expertise in
-                    branding and digital marketing has helped us reach new customers and grow our revenue.
+                    Our partnership with Naqsh Agency has been a game-changer
+                    for our business. Their expertise in branding and digital
+                    marketing has helped us reach new customers and grow our
+                    revenue.
                   </p>
                   <div className="flex items-center z-20 relative">
                     <div className="w-12 h-12 rounded-full mr-4 overflow-hidden relative">
@@ -1158,7 +1325,9 @@ export default function Home() {
                     </div>
                     <div>
                       <h4 className="font-bold text-gray-900">Robert Davis</h4>
-                      <p className="text-sm text-gray-500">Sales Director, GlobalTech</p>
+                      <p className="text-sm text-gray-500">
+                        Sales Director, GlobalTech
+                      </p>
                     </div>
                   </div>
                   <div className="absolute bottom-6 right-6 flex z-20">
@@ -1209,7 +1378,11 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
                         </svg>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1219,16 +1392,23 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M18 12H6"
+                          />
                         </svg>
                       </span>
                     </summary>
                     <div className="px-6 pb-6 text-gray-600">
                       <p>
-                        Our premium branding and web development services position your business for success by creating
-                        a strong, professional identity that attracts and retains customers. A well-crafted brand and
-                        website increase credibility, boost conversion rates, and help you stand out in a competitive
-                        market—ultimately driving more sales and revenue.
+                        Our premium branding and web development services
+                        position your business for success by creating a strong,
+                        professional identity that attracts and retains
+                        customers. A well-crafted brand and website increase
+                        credibility, boost conversion rates, and help you stand
+                        out in a competitive market—ultimately driving more
+                        sales and revenue.
                       </p>
                     </div>
                   </details>
@@ -1238,7 +1418,9 @@ export default function Home() {
                 <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
                   <details className="group">
                     <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">How can your services help me save money?</h3>
+                      <h3 className="text-xl font-bold text-gray-800">
+                        How can your services help me save money?
+                      </h3>
                       <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1248,7 +1430,11 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
                         </svg>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1258,15 +1444,21 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M18 12H6"
+                          />
                         </svg>
                       </span>
                     </summary>
                     <div className="px-6 pb-6 text-gray-600">
                       <p>
-                        By investing in high-quality branding and web development from the start, you avoid costly
-                        redesigns, ineffective marketing strategies, and lost opportunities due to a weak brand
-                        presence. A strategic, well-designed brand and website reduce advertising costs by naturally
+                        By investing in high-quality branding and web
+                        development from the start, you avoid costly redesigns,
+                        ineffective marketing strategies, and lost opportunities
+                        due to a weak brand presence. A strategic, well-designed
+                        brand and website reduce advertising costs by naturally
                         drawing in customers and improving retention.
                       </p>
                     </div>
@@ -1278,7 +1470,8 @@ export default function Home() {
                   <details className="group">
                     <summary className="flex items-center justify-between p-6 cursor-pointer">
                       <h3 className="text-xl font-bold text-gray-800">
-                        How much time can you save me, and what could I do with that time?
+                        How much time can you save me, and what could I do with
+                        that time?
                       </h3>
                       <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                         <svg
@@ -1289,7 +1482,11 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
                         </svg>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1299,16 +1496,22 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M18 12H6"
+                          />
                         </svg>
                       </span>
                     </summary>
                     <div className="px-6 pb-6 text-gray-600">
                       <p>
-                        We take care of the entire branding and web development process so you don't have to spend weeks
-                        or months trying to figure it out yourself. Instead of struggling with DIY solutions, you can
-                        focus on growing your business, serving customers, and scaling your operations while we handle
-                        your brand's digital presence.
+                        We take care of the entire branding and web development
+                        process so you don't have to spend weeks or months
+                        trying to figure it out yourself. Instead of struggling
+                        with DIY solutions, you can focus on growing your
+                        business, serving customers, and scaling your operations
+                        while we handle your brand's digital presence.
                       </p>
                     </div>
                   </details>
@@ -1319,7 +1522,8 @@ export default function Home() {
                   <details className="group">
                     <summary className="flex items-center justify-between p-6 cursor-pointer">
                       <h3 className="text-xl font-bold text-gray-800">
-                        What is something I don't have to do anymore once I get your service?
+                        What is something I don't have to do anymore once I get
+                        your service?
                       </h3>
                       <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                         <svg
@@ -1330,7 +1534,11 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
                         </svg>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1340,16 +1548,22 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M18 12H6"
+                          />
                         </svg>
                       </span>
                     </summary>
                     <div className="px-6 pb-6 text-gray-600">
                       <p>
-                        Once you work with us, you no longer have to worry about designing your own logo, website, or
-                        marketing materials. You can stop stressing over inconsistencies in branding, low website
-                        traffic, or outdated design—everything will be taken care of professionally, ensuring your brand
-                        remains strong and competitive.
+                        Once you work with us, you no longer have to worry about
+                        designing your own logo, website, or marketing
+                        materials. You can stop stressing over inconsistencies
+                        in branding, low website traffic, or outdated
+                        design—everything will be taken care of professionally,
+                        ensuring your brand remains strong and competitive.
                       </p>
                     </div>
                   </details>
@@ -1359,7 +1573,9 @@ export default function Home() {
                 <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
                   <details className="group">
                     <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">What physical pain do you eliminate for me?</h3>
+                      <h3 className="text-xl font-bold text-gray-800">
+                        What physical pain do you eliminate for me?
+                      </h3>
                       <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1369,7 +1585,11 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
                         </svg>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1379,15 +1599,21 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M18 12H6"
+                          />
                         </svg>
                       </span>
                     </summary>
                     <div className="px-6 pb-6 text-gray-600">
                       <p>
-                        We eliminate the stress and frustration that come with sitting for hours trying to build a
-                        website, design graphics, or troubleshoot technical issues. No more eye strain, headaches, or
-                        back pain from spending endless hours on DIY branding efforts.
+                        We eliminate the stress and frustration that come with
+                        sitting for hours trying to build a website, design
+                        graphics, or troubleshoot technical issues. No more eye
+                        strain, headaches, or back pain from spending endless
+                        hours on DIY branding efforts.
                       </p>
                     </div>
                   </details>
@@ -1397,7 +1623,9 @@ export default function Home() {
                 <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
                   <details className="group">
                     <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">What mental pain do you eliminate for me?</h3>
+                      <h3 className="text-xl font-bold text-gray-800">
+                        What mental pain do you eliminate for me?
+                      </h3>
                       <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1407,7 +1635,11 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
                         </svg>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1417,15 +1649,22 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M18 12H6"
+                          />
                         </svg>
                       </span>
                     </summary>
                     <div className="px-6 pb-6 text-gray-600">
                       <p>
-                        We take away the overwhelming pressure of building a professional brand from scratch. You won't
-                        have to deal with decision fatigue, confusion over design choices, or the fear of making a bad
-                        impression. Our expertise ensures your brand looks premium and resonates with your audience.
+                        We take away the overwhelming pressure of building a
+                        professional brand from scratch. You won't have to deal
+                        with decision fatigue, confusion over design choices, or
+                        the fear of making a bad impression. Our expertise
+                        ensures your brand looks premium and resonates with your
+                        audience.
                       </p>
                     </div>
                   </details>
@@ -1436,7 +1675,8 @@ export default function Home() {
                   <details className="group">
                     <summary className="flex items-center justify-between p-6 cursor-pointer">
                       <h3 className="text-xl font-bold text-gray-800">
-                        What are the ways your services can help me feel more comfortable?
+                        What are the ways your services can help me feel more
+                        comfortable?
                       </h3>
                       <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                         <svg
@@ -1447,7 +1687,11 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
                         </svg>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1457,15 +1701,22 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M18 12H6"
+                          />
                         </svg>
                       </span>
                     </summary>
                     <div className="px-6 pb-6 text-gray-600">
                       <p>
-                        With a professionally crafted brand and website, you gain confidence in how your business is
-                        perceived. You can network, promote your brand, and pitch to clients without second-guessing
-                        your visuals or messaging, knowing that your branding reflects quality and professionalism.
+                        With a professionally crafted brand and website, you
+                        gain confidence in how your business is perceived. You
+                        can network, promote your brand, and pitch to clients
+                        without second-guessing your visuals or messaging,
+                        knowing that your branding reflects quality and
+                        professionalism.
                       </p>
                     </div>
                   </details>
@@ -1476,8 +1727,9 @@ export default function Home() {
                   <details className="group">
                     <summary className="flex items-center justify-between p-6 cursor-pointer">
                       <h3 className="text-xl font-bold text-gray-800">
-                        What are some ways your services are going to help me be the envy of my friends and/or feel more
-                        loved by my family?
+                        What are some ways your services are going to help me be
+                        the envy of my friends and/or feel more loved by my
+                        family?
                       </h3>
                       <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                         <svg
@@ -1488,7 +1740,11 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
                         </svg>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1498,16 +1754,22 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M18 12H6"
+                          />
                         </svg>
                       </span>
                     </summary>
                     <div className="px-6 pb-6 text-gray-600">
                       <p>
-                        A strong brand and a beautifully designed website give you a level of credibility that others
-                        admire. Friends and family will see your business thrive, respect your entrepreneurial journey,
-                        and celebrate your success. Your business will stand out as an aspirational example in your
-                        circle.
+                        A strong brand and a beautifully designed website give
+                        you a level of credibility that others admire. Friends
+                        and family will see your business thrive, respect your
+                        entrepreneurial journey, and celebrate your success.
+                        Your business will stand out as an aspirational example
+                        in your circle.
                       </p>
                     </div>
                   </details>
@@ -1518,7 +1780,8 @@ export default function Home() {
                   <details className="group">
                     <summary className="flex items-center justify-between p-6 cursor-pointer">
                       <h3 className="text-xl font-bold text-gray-800">
-                        How will buying your services make me feel more popular and increase my social status?
+                        How will buying your services make me feel more popular
+                        and increase my social status?
                       </h3>
                       <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
                         <svg
@@ -1529,7 +1792,11 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                          />
                         </svg>
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -1539,16 +1806,22 @@ export default function Home() {
                           stroke="currentColor"
                           strokeWidth={2}
                         >
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M18 12H6" />
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M18 12H6"
+                          />
                         </svg>
                       </span>
                     </summary>
                     <div className="px-6 pb-6 text-gray-600">
                       <p>
-                        A professionally branded business elevates your status in both professional and social circles.
-                        Whether it's networking events, social media, or word-of-mouth referrals, people will recognize
-                        your business as premium and high-value. Your success story will enhance your influence and
-                        authority in your industry.
+                        A professionally branded business elevates your status
+                        in both professional and social circles. Whether it's
+                        networking events, social media, or word-of-mouth
+                        referrals, people will recognize your business as
+                        premium and high-value. Your success story will enhance
+                        your influence and authority in your industry.
                       </p>
                     </div>
                   </details>
@@ -1564,7 +1837,9 @@ export default function Home() {
                   className="group"
                   external={true}
                 >
-                  <span className="relative z-10">Schedule a Free Consultation</span>
+                  <span className="relative z-10">
+                    Schedule a Free Consultation
+                  </span>
                   <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
                   <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
                 </AnimatedButton>
@@ -1589,7 +1864,10 @@ export default function Home() {
             <ScrollReveal animation="slide-up">
               <form className="grid grid-cols-1 gap-6">
                 <div>
-                  <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                  >
                     Name
                   </label>
                   <input
@@ -1601,7 +1879,10 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">
+                  <label
+                    htmlFor="email"
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                  >
                     Email
                   </label>
                   <input
@@ -1613,7 +1894,10 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-gray-700 text-sm font-bold mb-2">
+                  <label
+                    htmlFor="message"
+                    className="block text-gray-700 text-sm font-bold mb-2"
+                  >
                     Message
                   </label>
                   <textarea
@@ -1624,7 +1908,11 @@ export default function Home() {
                   ></textarea>
                 </div>
 
-                <AnimatedButton variant="primary" type="submit" className="group">
+                <AnimatedButton
+                  variant="primary"
+                  type="submit"
+                  className="group"
+                >
                   <span className="relative z-10">Send Message</span>
                   <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
                   <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
@@ -1638,6 +1926,5 @@ export default function Home() {
       {/* Footer */}
       <Footer />
     </main>
-  )
+  );
 }
-
