@@ -103,7 +103,7 @@ export default function Home() {
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
                     textShadow: "0 1px 2px rgba(229, 121, 44, 0.1)",
-                    paddingBottom: "20px",
+                    paddingBottom: "10px",
                   }}
                 >
                   Branding
