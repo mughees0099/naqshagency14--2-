@@ -1,22 +1,22 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState } from "react"
-import { Check } from "lucide-react"
-import AnimatedButton from "@/components/animated-button"
+import { useState } from "react";
+import { Check } from "lucide-react";
+import AnimatedButton from "@/components/animated-button";
 
 interface PricingCardProps {
-  title: string
-  price: string
-  description: string
-  features: string[]
-  ctaLink: string
-  popular?: boolean
-  className?: string
-  setShowPaymentModal?: () => void
-  isEnterprise?: boolean
-  urgencyIndicator?: React.ReactNode
+  title: string;
+  price: string;
+  description: string;
+  features: string[];
+  ctaLink: string;
+  popular?: boolean;
+  className?: string;
+  setShowPaymentModal?: () => void;
+  isEnterprise?: boolean;
+  urgencyIndicator?: React.ReactNode;
 }
 
 export default function PricingCard({
@@ -31,55 +31,73 @@ export default function PricingCard({
   isEnterprise = false,
   urgencyIndicator,
 }: PricingCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleGetStarted = () => {
     if (isEnterprise) {
       // For Enterprise plan, redirect to meeting link
-      window.open("https://calendly.com/naqshagencyofficial/brand_consultation", "_blank")
+      window.open(
+        "https://calendly.com/naqshagencyofficial/brand_consultation",
+        "_blank"
+      );
     } else if (setShowPaymentModal) {
-      setShowPaymentModal()
+      setShowPaymentModal();
     }
-  }
+  };
 
   return (
     <div
       className={`bg-white rounded-xl overflow-hidden transition-all duration-500 relative shadow-md w-full flex flex-col ${
         popular ? "border-2 border-[#e5792c]" : "border border-gray-200"
-      } ${isHovered ? "shadow-xl transform -translate-y-2 z-30" : ""} ${className}`}
+      } ${
+        isHovered ? "shadow-xl transform -translate-y-2 z-30" : ""
+      } ${className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {popular && (
         <div className="absolute top-0 right-0 z-10">
-          <div className="bg-[#e5792c] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Most Popular</div>
+          <div className="bg-[#e5792c] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+            Most Popular
+          </div>
         </div>
       )}
-
-      <div className={`px-6 py-8 relative flex-grow flex flex-col overflow-hidden`}>
+      <div
+        className={`px-6 py-8 relative flex-grow flex flex-col overflow-hidden`}
+      >
         {isHovered && (
           <div className="absolute inset-0 bg-gradient-to-r from-[#e5792c]/10 via-orange-50 to-white opacity-90 pointer-events-none z-0"></div>
         )}
 
-        <h3 className="text-2xl font-bold mb-2 text-center relative z-1">{title}</h3>
+        <h3 className="text-2xl font-bold mb-2 text-center relative z-1">
+          {title}
+        </h3>
         <div className="text-3xl font-bold mb-4 text-center relative z-1 transition-colors duration-300 group-hover:text-[#e5792c]">
           {price}
         </div>
-        <p className="text-gray-600 text-sm text-center mb-6 relative z-1">{description}</p>
+        <p className="text-gray-600 text-sm text-center mb-6 relative z-1">
+          {description}
+        </p>
 
         <div className="space-y-3 mb-6 relative z-1 max-h-[350px] overflow-y-auto pr-2 custom-scrollbar">
           {features.map((feature, index) => (
             <div key={index} className="flex items-start group">
               <div
                 className={`w-5 h-5 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0 transition-colors duration-300 ${
-                  popular || isHovered ? "bg-[#e5792c]" : "border border-[#e5792c]/30"
+                  popular || isHovered
+                    ? "bg-[#e5792c]"
+                    : "border border-[#e5792c]/30"
                 } group-hover:bg-[#e5792c]`}
               >
                 <Check
-                  className={`w-3 h-3 ${popular || isHovered ? "text-white" : "text-[#e5792c]/30"} group-hover:text-white`}
+                  className={`w-3 h-3 ${
+                    popular || isHovered ? "text-white" : "text-[#e5792c]/30"
+                  } group-hover:text-white`}
                 />
               </div>
-              <span className="text-gray-700 text-sm font-semibold leading-tight">{feature}</span>
+              <span className="text-gray-700 text-sm font-semibold leading-tight">
+                {feature}
+              </span>
             </div>
           ))}
         </div>
@@ -93,7 +111,12 @@ export default function PricingCard({
               viewBox="0 0 24 24"
               stroke="currentColor"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </div>
         )}
@@ -102,30 +125,33 @@ export default function PricingCard({
         {urgencyIndicator}
 
         <div className="relative z-1 mt-auto pt-4 button-container">
-          <AnimatedButton onClick={handleGetStarted} variant={popular ? "primary" : "outline"} className="w-full group">
+          <AnimatedButton
+            onClick={handleGetStarted}
+            variant={popular ? "primary" : "outline"}
+            className="w-full group"
+          >
             <span className="relative z-10">Get Started</span>
             <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
             <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
           </AnimatedButton>
         </div>
       </div>
+      <style jsx>{`
+        .custom-scrollbar::-webkit-scrollbar {
+          width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+          background: #e5792c;
+          border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+          background: #d06a25;
+        }
+      `}</style>
     </div>
-  )
+  );
 }
-;<style jsx>{`
-  .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #e5792c;
-    border-radius: 10px;
-  }
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #d06a25;
-  }
-`}</style>
-
