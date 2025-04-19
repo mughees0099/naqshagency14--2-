@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
-import { useRouter } from "next/navigation"
-import { X, CreditCard, Wallet, DollarSign } from "lucide-react"
-import Link from "next/link"
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { X, CreditCard, Wallet, DollarSign } from "lucide-react";
+import Link from "next/link";
 
 interface PaymentModalProps {
-  isOpen: boolean
-  onClose: () => void
-  packageName?: string
-  packagePrice?: string
+  isOpen: boolean;
+  onClose: () => void;
+  packageName?: string;
+  packagePrice?: string;
 }
 
 export default function PaymentModal({
@@ -18,60 +18,66 @@ export default function PaymentModal({
   packageName = "Selected Package",
   packagePrice = "$0.00",
 }: PaymentModalProps) {
-  const router = useRouter()
+  const router = useRouter();
 
   // Close modal with escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
-        onClose()
+        onClose();
       }
-    }
+    };
 
     if (isOpen) {
-      document.addEventListener("keydown", handleEscape)
+      document.addEventListener("keydown", handleEscape);
       // Prevent scrolling when modal is open
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     }
 
     return () => {
-      document.removeEventListener("keydown", handleEscape)
+      document.removeEventListener("keydown", handleEscape);
       // Restore scrolling when modal is closed
-      document.body.style.overflow = "auto"
-    }
-  }, [isOpen, onClose])
+      document.body.style.overflow = "auto";
+    };
+  }, [isOpen, onClose]);
 
   const handlePaymentMethodSelect = (method: string) => {
     // Store package details in localStorage for use in payment pages
-    localStorage.setItem("packageName", packageName)
-    localStorage.setItem("packagePrice", packagePrice)
+    localStorage.setItem("packageName", packageName);
+    localStorage.setItem("packagePrice", packagePrice);
 
     // Proceed to payment page
     switch (method) {
       case "card":
-        router.push("/payment/card")
-        break
+        router.push("/payment/card");
+        break;
       case "paypal":
-        router.push("/payment/paypal")
-        break
+        router.push("/payment/paypal");
+        break;
       case "crypto":
-        router.push("/payment/crypto")
-        break
+        router.push("/payment/crypto");
+        break;
     }
-    onClose()
-  }
+    onClose();
+  };
 
-  if (!isOpen) return null
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50" onClick={onClose}>
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50"
+      onClick={onClose}
+    >
       <div
         className="bg-white rounded-xl shadow-2xl w-full max-w-md overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center p-6 border-b">
           <h3 className="text-xl font-bold">Select Payment Method</h3>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700">
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-gray-700"
+          >
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -88,7 +94,9 @@ export default function PaymentModal({
           <div className="space-y-3">
             <button
               onClick={() => {
-                alert("Credit/Debit Card payments coming soon! Please choose another payment method.")
+                alert(
+                  "Credit/Debit Card payments coming soon! Please choose another payment method."
+                );
               }}
               className="w-full flex items-center p-4 border rounded-lg hover:bg-gray-50 transition-colors relative overflow-hidden"
             >
@@ -97,11 +105,13 @@ export default function PaymentModal({
               </div>
               <div className="flex-1 text-left">
                 <p className="font-medium">Credit/Debit Card</p>
-                <p className="text-sm text-gray-500">Pay securely with your card</p>
+                <p className="text-sm text-gray-500">
+                  Pay securely with your card
+                </p>
               </div>
-              <div className="absolute top-0 right-0 bg-yellow-500 text-xs text-white px-2 py-1 rounded-bl-lg font-medium">
+              {/* <div className="absolute top-0 right-0 bg-yellow-500 text-xs text-white px-2 py-1 rounded-bl-lg font-medium">
                 Coming Soon
-              </div>
+              </div> */}
             </button>
 
             <button
@@ -126,7 +136,9 @@ export default function PaymentModal({
               </div>
               <div className="flex-1 text-left">
                 <p className="font-medium">Cryptocurrency</p>
-                <p className="text-sm text-gray-500">Pay with Bitcoin, Ethereum, etc.</p>
+                <p className="text-sm text-gray-500">
+                  Pay with Bitcoin, Ethereum, etc.
+                </p>
               </div>
             </button>
           </div>
@@ -146,6 +158,5 @@ export default function PaymentModal({
         </div>
       </div>
     </div>
-  )
+  );
 }
-
