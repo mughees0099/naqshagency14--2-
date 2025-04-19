@@ -108,7 +108,7 @@ export default function Home() {
                 >
                   Branding
                 </span>{" "}
-                & Website Solution
+                & Web Solutions
               </h1>
 
               <p className="text-lg md:text-xl text-gray-600 animate-slide-up delay-100">
@@ -126,8 +126,8 @@ export default function Home() {
                   Schedule a Meeting
                 </AnimatedButton>
 
-                <AnimatedButton href="/portfolio" variant="outline" size="lg">
-                  View Our Work
+                <AnimatedButton href="#pricing" variant="outline" size="lg">
+                  View Pricing
                 </AnimatedButton>
               </div>
 
@@ -151,7 +151,7 @@ export default function Home() {
             <div className="relative">
               <div className="relative h-[400px] md:h-[500px] rounded-lg overflow-hidden animate-scale-in">
                 <Image
-                  src="/placeholder.svg?height=500&width=500"
+                  src="/main-image.jpg?height=500&width=500"
                   alt="Naqsh Agency"
                   fill
                   className="object-cover"
@@ -191,14 +191,46 @@ export default function Home() {
           </div>
 
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {[1, 2, 3, 4, 5].map((i) => (
-              <div
-                key={i}
-                className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-              >
-                <div className="w-24 h-12 bg-gray-200 rounded"></div>
+            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <div className="w-24 h-12 bg-gray-200 rounded">
+                <Image src="/Lakers.png" height={48} width={96} alt="" />
               </div>
-            ))}
+            </div>
+            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <div className="w-24 h-12 bg-gray-200 rounded">
+                <Image
+                  src="/metapastry-logo.png"
+                  height={48}
+                  width={96}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <div className="w-24 h-12 bg-gray-200 rounded">
+                <Image
+                  src="/AlpineFoods logo.png"
+                  height={48}
+                  width={96}
+                  alt=""
+                />
+              </div>
+            </div>
+            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <div className="w-24 h-12 bg-gray-200 rounded">
+                <Image src="/Notion.png" height={48} width={96} alt="" />
+              </div>
+            </div>
+            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <div className="w-24 h-12 bg-gray-200 rounded">
+                <Image src="/Adobe.png" height={48} width={96} alt="" />
+              </div>
+            </div>
+            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+              <div className="w-24 h-12 bg-gray-200 rounded">
+                <Image src="/fiverr.png" height={48} width={96} alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -718,7 +750,7 @@ export default function Home() {
       </section>
 
       {/* Pricing Packages Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white" id="pricing">
         <div className="container mx-auto">
           <div className="text-center max-w-3xl mx-auto mb-16 relative">
             <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 w-20 h-20 bg-[#e5792c]/10 rounded-full blur-xl"></div>
@@ -797,7 +829,7 @@ export default function Home() {
                     <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
                       <span className="w-2 h-2 bg-red-500 rounded-full"></span>
                       <span className="text-xs text-red-600 font-medium">
-                        Only 3 spots left this month
+                        Only 2 spots left this month
                       </span>
                     </div>
                   </div>
