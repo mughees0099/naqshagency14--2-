@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Star } from "lucide-react";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
@@ -77,11 +76,10 @@ export default function PortfolioPage() {
             {categories.map((category) => (
               <button
                 key={category}
-                className={`px-6 py-2 rounded-full ${
-                  selectedCategory === category
-                    ? "bg-[#e5792c] text-white"
-                    : "bg-gray-100 hover:bg-gray-200"
-                }`}
+                className={`px-6 py-2 rounded-full ${selectedCategory === category
+                  ? "bg-[#e5792c] text-white"
+                  : "bg-gray-100 hover:bg-gray-200"
+                  }`}
                 onClick={() => setSelectedCategory(category)}
               >
                 {category}
@@ -181,14 +179,14 @@ export default function PortfolioPage() {
               Let's collaborate to create a powerful brand and digital presence
               that drives measurable results for your business.
             </p>
-            <Link
+            <AnimatedButton
               href="https://calendly.com/naqshagencyofficial/brand_consultation"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#e5792c] text-white rounded-full px-8 py-4 font-medium transition-all hover:bg-[#d06a25] inline-block"
+              external={true}
+              variant="primary"
+              className="group"
             >
               Schedule Your Free Consultation
-            </Link>
+            </AnimatedButton>
           </div>
         </div>
       </section>

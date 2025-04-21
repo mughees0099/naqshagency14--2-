@@ -302,12 +302,10 @@ export default function ProjectPage({
                 <AnimatedButton
                   href="https://calendly.com/naqshagencyofficial/brand_consultation"
                   variant="primary"
-                  className="w-full text-center block group"
+                  className="w-full group"
                   external={true}
                 >
-                  <span className="relative z-10">Start a Similar Project</span>
-                  <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
-                  <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
+                  Start a Similar Project
                 </AnimatedButton>
               </div>
             </div>
@@ -330,10 +328,8 @@ export default function ProjectPage({
             className="group"
             external={true}
           >
-            <span className="relative z-10">Start a Similar Project</span>
-            <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
-            <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
-          </AnimatedButton>
+            Start a Similar Project
+      </AnimatedButton>
         </div>
       </section>
 

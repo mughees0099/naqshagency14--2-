@@ -9,7 +9,7 @@ export default function AboutPage() {
       <Navbar />
 
       {/* Header Section */}
-      <section className="bg-[#171717] text-white py-16 md:py-24 mt-16">
+      <section className="bg-[#171717] text-white py-16 md:py-24 mt-20">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -30,23 +30,13 @@ export default function AboutPage() {
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
               <p className="text-lg text-gray-600 mb-6">
-                Founded in 2020, Naqsh Agency was born from a vision to create
-                meaningful brands and digital experiences that drive business
-                growth. We believe that exceptional design and strategic
-                thinking are essential for businesses to thrive in today's
-                competitive landscape.
+              Naqsh (نقش) is an Urdu word that translates to "pattern," "design," or "impression." In the heart of Kashmir, where nature paints breathtaking landscapes, Naqsh.agency finds its inspiration. We see design as an art form, a way to capture the essence of a story and create a lasting impression.
               </p>
               <p className="text-lg text-gray-600 mb-6">
-                Our name "Naqsh" draws inspiration from the art of creating
-                intricate patterns and designs that stand the test of time. Just
-                like these timeless patterns, we craft brands and digital
-                solutions that make a lasting impression.
+              The half-circle in our logo is a symbol of potential and growth, representing the beginning of a creative journey. It’s a reminder that every design starts with an idea, a spark that we nurture into something beautiful and meaningful.
               </p>
               <p className="text-lg text-gray-600">
-                Today, we're proud to work with clients across various
-                industries, helping them transform their brands and achieve
-                their business goals through our premium branding and web
-                solutions.
+              Naqsh.agency is more than just a design studio; we’re storytellers. We believe that every brand has a unique story to tell, and we’re here to help you tell it in a way that resonates with your audience. Our approach is simple yet impactful: we listen, we collaborate, and we create.
               </p>
             </div>
             <div className="relative h-[400px] md:h-[500px]">
