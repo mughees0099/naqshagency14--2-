@@ -769,7 +769,8 @@ export default function Home() {
             <div className="w-full md:w-1/3 max-w-sm">
               <PricingCard
                 title="Startup Plan"
-                price="$4,998 / Per-Year"
+                price="$4,998"
+                serviceDurationIn='/Year'
                 description="Perfect for startups and small businesses looking to establish a professional brand identity."
                 features={[
                   "Logo Design (3 Concepts)",
@@ -804,7 +805,8 @@ export default function Home() {
             <div className="w-full md:w-1/3 max-w-sm relative">
               <PricingCard
                 title="Business Plan"
-                price="$9,898 / Per-Year"
+                price="$9,898"
+                serviceDurationIn='/Year'
                 description="Comprehensive branding solution for growing businesses ready to make a stronger market impact."
                 features={[
                   "Logo Design (5 Concepts)",
