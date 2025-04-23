@@ -131,9 +131,11 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Image from 'next/image';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import logo from '/public/naqsh-logo.png';
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -163,7 +165,12 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-[#e5792c]">naqsh.</span>
+            {/* <span className="text-2xl font-bold text-[#e5792c]">naqsh.</span> */}
+            <Image
+              src={logo}
+              alt="Logo"
+              height={200}
+            />
           </Link>
 
           {/* Desktop Navigation */}
