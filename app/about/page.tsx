@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+// import naqshImage from '/public/naqsh-desk.png'
+import naqshImage from '/public/naqsh-desk-2.png'
 
 export default function AboutPage() {
   return (
@@ -29,19 +31,19 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Story</h2>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-600 mb-6 text-justify">
               Naqsh (نقش) is an Urdu word that translates to "pattern," "design," or "impression." In the heart of Kashmir, where nature paints breathtaking landscapes, Naqsh.agency finds its inspiration. We see design as an art form, a way to capture the essence of a story and create a lasting impression.
               </p>
-              <p className="text-lg text-gray-600 mb-6">
+              <p className="text-lg text-gray-600 mb-6 text-justify">
               The half-circle in our logo is a symbol of potential and growth, representing the beginning of a creative journey. It’s a reminder that every design starts with an idea, a spark that we nurture into something beautiful and meaningful.
               </p>
-              <p className="text-lg text-gray-600">
+              <p className="text-lg text-gray-600 text-justify">
               Naqsh.agency is more than just a design studio; we’re storytellers. We believe that every brand has a unique story to tell, and we’re here to help you tell it in a way that resonates with your audience. Our approach is simple yet impactful: we listen, we collaborate, and we create.
               </p>
             </div>
             <div className="relative h-[400px] md:h-[500px]">
               <Image
-                src="/placeholder.svg?height=500&width=500"
+                src={naqshImage}
                 alt="Naqsh Agency Team"
                 fill
                 className="object-cover rounded-lg"
@@ -68,7 +70,7 @@ export default function AboutPage() {
             <div className="bg-[#ededed] rounded-lg overflow-hidden">
               <div className="h-80 relative">
                 <Image
-                  src="/placeholder.svg?height=320&width=320"
+                  src={naqshImage}
                   alt="Team Member"
                   fill
                   className="object-cover"

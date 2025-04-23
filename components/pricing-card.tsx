@@ -74,8 +74,9 @@ export default function PricingCard({
         <h3 className="text-2xl font-bold mb-2 text-center relative z-1">
           {title}
         </h3>
-        <div className="text-3xl font-bold mb-4 text-center relative z-1 transition-colors duration-300 group-hover:text-[#e5792c] flex items-end justify-center gap-2">
-          {price}<p className='text-sm text-naqsh-black'>{serviceDurationIn}</p>
+        <div className="text-3xl font-bold mb-4 text-center relative z-1 transition-colors duration-300 group-hover:text-[#e5792c] flex items-end justify-center gap-.5">
+          <p>{price}</p>
+          <p className='text-sm text-naqsh-black'>{serviceDurationIn}</p>
         </div>
         <p className="text-gray-600 text-sm text-center mb-6 relative z-1">
           {description}

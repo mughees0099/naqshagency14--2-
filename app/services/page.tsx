@@ -3,6 +3,7 @@ import Link from "next/link"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import AnimatedButton from '@/components/animated-button'
+import naqshProcess from '/public/naqsh-process.png'
 
 export default function ServicesPage() {
   return (
@@ -90,9 +91,9 @@ export default function ServicesPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px]">
+            <div className="relative h-[400px] md:h-[605px]">
               <Image
-                src="/placeholder.svg?height=500&width=500"
+                src={naqshProcess}
                 alt="Branding Services"
                 fill
                 className="object-cover rounded-lg"

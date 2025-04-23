@@ -3,6 +3,7 @@
 import AnimatedButton from "@/components/animated-button";
 import AnimatedCard from "@/components/animated-card";
 import Footer from "@/components/footer";
+import FaqSection from '@/components/home/faq-section';
 import Navbar from "@/components/navbar";
 import PaymentModal from "@/components/payment-modal";
 import PricingCard from "@/components/pricing-card";
@@ -22,7 +23,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useInView } from "react-intersection-observer";
-import FaqSection from '@/components/home/faq-section';
 
 export default function Home() {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
@@ -183,7 +183,7 @@ export default function Home() {
       </section>
 
       {/* Clients Section */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12">
         <div className="container mx-auto">
           <div className="text-center mb-8">
             <p className="text-gray-500 text-sm">
@@ -193,12 +193,12 @@ export default function Home() {
 
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
+              <div className="w-24 h-12 rounded">
                 <Image src="/Lakers.png" height={48} width={96} alt="" />
               </div>
             </div>
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
+              <div className="w-24 h-12  rounded">
                 <Image
                   src="/metapastry-logo.png"
                   height={48}
@@ -208,7 +208,7 @@ export default function Home() {
               </div>
             </div>
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
+              <div className="w-24 h-12  rounded">
                 <Image
                   src="/AlpineFoods logo.png"
                   height={48}
@@ -218,17 +218,17 @@ export default function Home() {
               </div>
             </div>
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
+              <div className="w-24 h-12  rounded">
                 <Image src="/Notion.png" height={48} width={96} alt="" />
               </div>
             </div>
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
+              <div className="w-24 h-12  rounded">
                 <Image src="/Adobe.png" height={48} width={96} alt="" />
               </div>
             </div>
             <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
+              <div className="w-24 h-12  rounded">
                 <Image src="/fiverr.png" height={48} width={96} alt="" />
               </div>
             </div>
@@ -618,7 +618,7 @@ export default function Home() {
 
                 <div className="mt-8 p-6 bg-[#171717] text-white rounded-lg">
                   <p className="text-lg">
-                    💔{" "}
+                    {" "}
                     <span className="font-bold">
                       It's frustrating. It's exhausting.
                     </span>{" "}
@@ -850,6 +850,7 @@ export default function Home() {
                 features={[
                   "Custom Enterprise Solutions",
                   "Unlimited Brand Concepts",
+                  "Full-Service Graphic Design",
                   "Full Digital Presence",
                   "Complex Website Development",
                   "Mobile	App	Development",
