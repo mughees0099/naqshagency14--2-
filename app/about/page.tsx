@@ -2,8 +2,35 @@ import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-// import naqshImage from '/public/naqsh-desk.png'
+import BrandLogos from '@/components/shared/BrandLogos'
 import naqshImage from '/public/naqsh-desk-2.png'
+import profileImg1 from '/public/profile-image-1.jpg'
+import profileImg2 from '/public/profile-image-2.jpg'
+import profileImg3 from '/public/profile-image-3.jpg'
+
+const teamMembers = [
+  {
+    image: profileImg1,
+    name: "Azrim Arif",
+    role: "Founder & Creative Director",
+    description:
+      "With over 8 years of experience in branding and design, Sarah leads our creative team with passion and vision.",
+  },
+  {
+    image: profileImg2,
+    name: "Karrie",
+    role: "Brand Strategist",
+    description:
+      "Karrie develops strategic brand frameworks that help our clients connect with their target audience effectively.",
+  },
+  {
+    image: profileImg3,
+    name: "Mughees Javed",
+    role: "Full-Stack Developer",
+    description:
+      "Full-Stack Development specialized in MERN Stack Development With 5 years of experience in building scalable web applications.",
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -67,65 +94,27 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-[#ededed] rounded-lg overflow-hidden">
-              <div className="h-80 relative">
-                <Image
-                  src={naqshImage}
-                  alt="Team Member"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Sarah Johnson</h3>
-                <p className="text-[#e5792c] mb-4">
-                  Founder & Creative Director
-                </p>
-                <p className="text-gray-600">
-                  With over 15 years of experience in branding and design, Sarah
-                  leads our creative team with passion and vision.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-[#ededed] rounded-lg overflow-hidden">
-              <div className="h-80 relative">
-                <Image
-                  src="/placeholder.svg?height=320&width=320"
-                  alt="Team Member"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Michael Chen</h3>
-                <p className="text-[#e5792c] mb-4">Technical Director</p>
-                <p className="text-gray-600">
-                  Michael brings technical expertise and innovation to our web
-                  development projects, ensuring seamless functionality.
-                </p>
-              </div>
-            </div>
-
-            <div className="bg-[#ededed] rounded-lg overflow-hidden">
-              <div className="h-80 relative">
-                <Image
-                  src="/placeholder.svg?height=320&width=320"
-                  alt="Team Member"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold mb-1">Emma Rodriguez</h3>
-                <p className="text-[#e5792c] mb-4">Brand Strategist</p>
-                <p className="text-gray-600">
-                  Emma develops strategic brand frameworks that help our clients
-                  connect with their target audience effectively.
-                </p>
-              </div>
-            </div>
+        {teamMembers.map((member, index) => (
+        <div
+          key={index}
+          className="bg-[#ededed] rounded-lg overflow-hidden"
+        >
+          <div className="h-80 relative">
+            <Image
+              src={member.image}
+              alt="Team Member"
+              fill
+              className="object-cover"
+            />
           </div>
+          <div className="p-6">
+            <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+            <p className="text-[#e5792c] mb-4">{member.role}</p>
+            <p className="text-gray-600">{member.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
         </div>
       </section>
 
@@ -166,13 +155,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="flex items-center justify-center">
-                <div className="w-24 h-24 bg-gray-200 rounded-lg"></div>
-              </div>
-            ))}
-          </div>
+          <BrandLogos/>
+
         </div>
       </section>
 
@@ -187,7 +171,15 @@ export default function AboutPage() {
               competitive market and achieve our business goals.
             </p>
             <div className="flex items-center">
-              <div className="w-12 h-12 bg-gray-300 rounded-full mr-4"></div>
+              <figure className="w-12 h-12 rounded-full mr-4">
+                <Image
+                  src={'https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load'}
+                  width={0}
+                  height={0}
+                  alt="Client"
+                  className="object-cover rounded-full w-12 h-12 rounded-full"
+                />
+              </figure>
               <div>
                 <h4 className="font-bold">Sarah Johnson</h4>
                 <p className="text-sm text-gray-400">CEO, TechStart</p>
