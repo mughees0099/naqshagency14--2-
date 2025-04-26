@@ -3,7 +3,7 @@ import Link from "next/link"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import AnimatedButton from '@/components/animated-button'
-import naqshProcess from '/public/naqsh-process.png'
+import naqshProcess from '/public/naqsh-branding-process.png'
 
 export default function ServicesPage() {
   return (
