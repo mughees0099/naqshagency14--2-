@@ -1,14 +1,15 @@
 "use client";
 
+import AnimatedButton from '@/components/animated-button';
+import Footer from '@/components/footer';
+import Navbar from '@/components/navbar';
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import { Mail, Phone, MapPin } from "lucide-react";
-import AnimatedButton from '@/components/animated-button';
-import Image from "next/image";
-import Navbar from '@/components/navbar'; 
-import Footer from '@/components/footer'; 
+import contactImg from "/public/contact-img.jpg";
 
 // Define types for form data
 interface ContactFormData {
@@ -216,9 +217,9 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="relative h-[300px] rounded-lg overflow-hidden">
+              <div className="relative h-[300px] rounded-lg overflow-hidden flex justify-center">
                 <Image
-                  src="/placeholder.svg?height=300&width=600"
+                  src={contactImg}
                   alt="Office Location Map"
                   fill
                   className="object-cover"

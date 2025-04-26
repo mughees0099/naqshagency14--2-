@@ -3,7 +3,8 @@
 import AnimatedButton from "@/components/animated-button";
 import AnimatedCard from "@/components/animated-card";
 import Footer from "@/components/footer";
-import FaqSection from '@/components/home/faq-section';
+import FaqSection from '@/components/home/FaqSection';
+import BrandLogos from '@/components/shared/BrandLogos'
 import Navbar from "@/components/navbar";
 import PaymentModal from "@/components/payment-modal";
 import PricingCard from "@/components/pricing-card";
@@ -190,49 +191,7 @@ export default function Home() {
               TRUSTED BY INNOVATIVE COMPANIES
             </p>
           </div>
-
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 rounded">
-                <Image src="/Lakers.png" height={48} width={96} alt="" />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12  rounded">
-                <Image
-                  src="/metapastry-logo.png"
-                  height={48}
-                  width={96}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12  rounded">
-                <Image
-                  src="/AlpineFoods logo.png"
-                  height={48}
-                  width={96}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12  rounded">
-                <Image src="/Notion.png" height={48} width={96} alt="" />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12  rounded">
-                <Image src="/Adobe.png" height={48} width={96} alt="" />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12  rounded">
-                <Image src="/fiverr.png" height={48} width={96} alt="" />
-              </div>
-            </div>
-          </div>
+          <BrandLogos/>
         </div>
       </section>
 
@@ -315,7 +274,7 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#e5792c] opacity-5 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
               <div className="relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-[#e5792c] rounded-full flex items-center justify-center text-white mr-6 flex-shrink-0">
+                  <div className="text-white mr-1">
                     <span className="text-3xl font-bold">80%</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
