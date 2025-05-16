@@ -48,7 +48,7 @@ const brandAuditSchema = z.object({
   personal: z.object({
     fullName: z.string().min(1, "Full name is required"),
     email: z.string().email("Invalid email address"),
-    phoneNumber: z.string().optional(),
+    phoneNumber: z.string().min(1, 'Phone number is required'),
     companyName: z.string().min(1, "Company name is required"),
     websiteUrl: z.string().optional(),
     industry: z.string().min(1, "Industry is required"),
@@ -185,6 +185,26 @@ export default function BrandAuditPage() {
     }
   };
 
+  // Add new function to handle form errors
+  const handleFormError = (errors: any) => {
+    // Find the first section with errors
+    const sectionsWithErrors = sections.map(section => {
+      const hasErrors = Object.keys(errors).includes(section.id);
+      return { ...section, hasErrors };
+    });
+
+    // Open the first section with errors
+    const firstErrorSection = sectionsWithErrors.find(section => section.hasErrors);
+    if (firstErrorSection) {
+      setSections(
+        sections.map((section) => ({
+          ...section,
+          isOpen: section.id === firstErrorSection.id,
+        }))
+      );
+    }
+  };
+
   return (
     <main className="min-h-screen flex flex-col bg-gray-50">
       <Navbar />
@@ -223,7 +243,7 @@ export default function BrandAuditPage() {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+            <form onSubmit={handleSubmit(onSubmit, handleFormError)} className="space-y-6">
               {sections.map((section) => (
                 <div
                   key={section.id}
@@ -273,7 +293,8 @@ export default function BrandAuditPage() {
                                 <input
                                   {...register("personal.fullName")}
                                   type="text"
-                                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e5792c] focus:border-transparent"
+                                  className={`w-full px-4 py-2 rounded-lg border ${errors.personal?.fullName ? "border-red-500" : "border-gray-300"
+                                    } focus:outline-none focus:ring-2 focus:ring-[#e5792c] focus:border-transparent`}
                                   placeholder="Enter your full name"
                                 />
                                 {errors.personal?.fullName && (
@@ -289,7 +310,8 @@ export default function BrandAuditPage() {
                                 <input
                                   {...register("personal.email")}
                                   type="email"
-                                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e5792c] focus:border-transparent"
+                                  className={`w-full px-4 py-2 rounded-lg border ${errors.personal?.email ? "border-red-500" : "border-gray-300"
+                                    } focus:outline-none focus:ring-2 focus:ring-[#e5792c] focus:border-transparent`}
                                   placeholder="Enter your email address"
                                 />
                                 {errors.personal?.email && (
@@ -379,7 +401,8 @@ export default function BrandAuditPage() {
                                 <input
                                   {...register("identity.brandDescription")}
                                   type="text"
-                                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e5792c] focus:border-transparent"
+                                  className={`w-full px-4 py-2 rounded-lg border ${errors.identity?.brandDescription ? "border-red-500" : "border-gray-300"
+                                    } focus:outline-none focus:ring-2 focus:ring-[#e5792c] focus:border-transparent`}
                                   placeholder="e.g., Innovative, Reliable, Friendly"
                                 />
                                 {errors.identity?.brandDescription && (
@@ -557,11 +580,12 @@ export default function BrandAuditPage() {
                                 </label>
                                 <select
                                   {...register("online.socialMediaActivity")}
-                                  className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#e5792c] focus:border-transparent"
+                                  className={`w-full px-4 py-2 rounded-lg border ${errors.online?.socialMediaActivity ? "border-red-500" : "border-gray-300"
+                                    } focus:outline-none focus:ring-2 focus:ring-[#e5792c] focus:border-transparent`}
                                 >
                                   <option value="">Select an option</option>
                                   <option value="Very Active">Very Active</option>
-                                  <option value="Cccasionally">Occasionally</option>
+                                  <option value="Occasionally">Occasionally</option>
                                   <option value="Rarely">Rarely</option>
                                   <option value="Not At All">Not at All</option>
                                 </select>
@@ -752,13 +776,15 @@ export default function BrandAuditPage() {
                   Your information is secure and will only be used to provide
                   you with a better branding solution.
                 </p>
-                <AnimatedButton
-                  type="submit"
-                  variant="primary"
-                  size="lg"
-                >
-                  {isSubmitting ? "Submitting..." : "Submit Audit"}
-                </AnimatedButton>
+                <div className="flex items-center gap-4">
+                  <AnimatedButton
+                    type="submit"
+                    variant="primary"
+                    size="lg"
+                  >
+                    {isSubmitting ? "Submitting..." : "Submit Audit"}
+                  </AnimatedButton>
+                </div>
               </div>
             </form>
             {isSubmitted && (
