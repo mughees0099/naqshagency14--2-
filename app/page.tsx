@@ -723,114 +723,107 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-stretch mt-12 relative px-4 gap-8">
-            {/* First Package - Essential Plan */}
-            <div className="w-full md:w-1/3 max-w-sm">
-              <PricingCard
-                title="Startup Plan"
-                price="$4,998"
-                serviceDurationIn='/Year'
-                description="Perfect for startups and small businesses looking to establish a professional brand identity."
-                features={[
-                  "Logo Design (3 Concepts)",
-                  "Brand Style Guide",
-                  "Business Card Design",
-                  "Social Media Kit",
-                  "Email Signature",
-                  "1-Page	High-Converting	Website,	Mobile-Optimized	&	SEO-Ready",
-                  "Clear	CTA	&	Booking	Integration", 
-                  "Website maintenance &	Support (1 Year)",
-                  "Domain	&	Hosting(1	year)"
-                ]}
-                ctaLink="/payment"
-                className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 pricing-card-essential"
-                setShowPaymentModal={() =>
-                  handleOpenPaymentModal("Essential Plan", "$4,998")
-                }
-                urgencyIndicator={
-                  <div className="mt-4 mb-2 flex justify-center">
-                    <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
-                      <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                      <span className="text-xs text-red-600 font-medium">
-                        Only 2 spots left this month
-                      </span>
-                    </div>
-                  </div>
-                }
-              />
-            </div>
-
-            {/* Popular Package - Business Plan */}
-            <div className="w-full md:w-1/3 max-w-sm relative">
-              <PricingCard
-                title="Business Plan"
-                price="$9,898"
-                serviceDurationIn='/Year'
-                description="Comprehensive branding solution for growing businesses ready to make a stronger market impact."
-                features={[
-                  "Logo Design (5 Concepts)",
-                  "Complete Brand Guidelines",
-                  "Social Media Kit",
-                  "Stationery Design Suite",
-                  "Marketing Collateral",
-                  "Content Creation",
-                  "5-Page Custom High converting website",
-                  "Clear CTA & Booking Integration",
-                  "Advanced SEO Setup & Blog Integration",
-                  "Website maintenance & Support (1 Year)",
-                  "Domain & Hosting(1 year)",
-                  "Conversion-Optimized"
-                ]}
-                ctaLink="/payment"
-                popular={true}
-                className="transform transition-all duration-500 hover:-translate-y-2 border-2 border-[#e5792c] h-full pricing-card-business"
-                setShowPaymentModal={() =>
-                  handleOpenPaymentModal("Business Plan", "$9,898")
-                }
-                urgencyIndicator={
-                  <div className="mt-4 mb-2 flex justify-center">
-                    <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
-                      <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                      <span className="text-xs text-red-600 font-medium">
-                        Only 2 spots left this month
-                      </span>
-                    </div>
-                  </div>
-                }
-              />
-            </div>
-
-            {/* Third Package - Enterprise Plan */}
-            <div className="w-full md:w-1/3 max-w-sm">
-              <PricingCard
-                title="Enterprise Plan"
-                price="Let's Talk"
-                description="All-inclusive branding package for established businesses seeking a complete brand transformation."
-                features={[
-                  "Custom Enterprise Solutions",
-                  "Unlimited Brand Concepts",
-                  "Full-Service Graphic Design",
-                  "Full Digital Presence",
-                  "Complex Website Development",
-                  "Mobile	App	Development",
-                  "Backend Development & Handling",
-                  "E-commerce Store Creation",
-                  "CRM, or Advanced Funnel Setup",
-                  "Top Marketing Talent Access",
-                  "Advanced Marketing Strategy",
-                  "Dedicated Account Manager",
-                  "Priority Support",
-                  "Flexible Payment Terms",
-                ]}
-                ctaLink="/contact"
-                className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2"
-                setShowPaymentModal={() =>
-                  handleOpenPaymentModal("Enterprise Plan", "Let's Talk")
-                }
-                isEnterprise={true}
-              />
-            </div>
+         <div className="flex flex-col md:flex-row justify-center items-stretch mt-12 relative px-4 gap-8">
+  {/* First Package - Startup Plan */}
+  <div className="w-full md:w-1/3 max-w-sm">
+    <PricingCard
+      title="Startup Plan"
+      price="$4,998"
+      serviceDurationIn='/Year'
+      description="Perfect for startups and small businesses looking to establish a professional brand identity."
+      features={[
+        "Logo Design (3 Concepts)",
+        "Brand Style Guide",
+        "Business Card Design",
+        "Social Media Kit",
+        "Email Signature",
+        "1-Page	High-Converting	Website,	Mobile-Optimized	&	SEO-Ready",
+        "Clear	CTA	&	Booking	Integration", 
+        "Website maintenance &	Support (1 Year)",
+        "Domain	&	Hosting(1	year)"
+      ]}
+      ctaLink="https://buy.stripe.com/cNifZi9Zi3EV8MwbH70gw00"
+      className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 pricing-card-essential"
+      urgencyIndicator={
+        <div className="mt-4 mb-2 flex justify-center">
+          <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
+            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+            <span className="text-xs text-red-600 font-medium">
+              Only 2 spots left this month
+            </span>
           </div>
+        </div>
+      }
+    />
+  </div>
+
+  {/* Popular Package - Business Plan */}
+  <div className="w-full md:w-1/3 max-w-sm relative">
+    <PricingCard
+      title="Business Plan"
+      price="$9,898"
+      serviceDurationIn='/Year'
+      description="Comprehensive branding solution for growing businesses ready to make a stronger market impact."
+      features={[
+        "Logo Design (5 Concepts)",
+        "Complete Brand Guidelines",
+        "Social Media Kit",
+        "Stationery Design Suite",
+        "Marketing Collateral",
+        "Content Creation",
+        "5-Page Custom High converting website",
+        "Clear CTA & Booking Integration",
+        "Advanced SEO Setup & Blog Integration",
+        "Website maintenance & Support (1 Year)",
+        "Domain & Hosting(1 year)",
+        "Conversion-Optimized"
+      ]}
+     
+      ctaLink="https://buy.stripe.com/00w4gA9Zi1wNaUEdPf0gw01"
+      popular={true}
+      className="transform transition-all duration-500 hover:-translate-y-2 border-2 border-[#e5792c] h-full pricing-card-business"
+      urgencyIndicator={
+        <div className="mt-4 mb-2 flex justify-center">
+          <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
+            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+            <span className="text-xs text-red-600 font-medium">
+              Only 2 spots left this month
+            </span>
+          </div>
+        </div>
+      }
+    />
+  </div>
+
+  {/* Third Package - Enterprise Plan */}
+  <div className="w-full md:w-1/3 max-w-sm">
+    <PricingCard
+      title="Enterprise Plan"
+      price="Let's Talk"
+      description="All-inclusive branding package for established businesses seeking a complete brand transformation."
+      features={[
+        "Custom Enterprise Solutions",
+        "Unlimited Brand Concepts",
+        "Full-Service Graphic Design",
+        "Full Digital Presence",
+        "Complex Website Development",
+        "Mobile	App	Development",
+        "Backend Development & Handling",
+        "E-commerce Store Creation",
+        "CRM, or Advanced Funnel Setup",
+        "Top Marketing Talent Access",
+        "Advanced Marketing Strategy",
+        "Dedicated Account Manager",
+        "Priority Support",
+        "Flexible Payment Terms",
+      ]}
+    
+      ctaLink="https://calendly.com/naqshagencyofficial/brand_consultation"
+      className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2"
+      isEnterprise={true}
+    />
+  </div>
+</div>
 
           {/* White Labeled Service - Redesigned */}
           <div className="mt-16 max-w-4xl mx-auto">

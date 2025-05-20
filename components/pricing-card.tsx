@@ -12,12 +12,13 @@ interface PricingCardProps {
   description: string;
   features: string[];
   ctaLink: string;
+  ctaText?: string;
   popular?: boolean;
   className?: string;
   setShowPaymentModal?: () => void;
   isEnterprise?: boolean;
   urgencyIndicator?: React.ReactNode;
-  serviceDurationIn?:string
+  serviceDurationIn?: string;
 }
 
 export default function PricingCard({
@@ -26,6 +27,7 @@ export default function PricingCard({
   description,
   features,
   ctaLink,
+  ctaText = "Get Started",
   popular = false,
   className = "",
   setShowPaymentModal,
@@ -42,8 +44,15 @@ export default function PricingCard({
         "https://calendly.com/naqshagencyofficial/brand_consultation",
         "_blank"
       );
+    } else if (ctaLink.startsWith("https://")) {
+      // Handle direct external links, including Stripe payment links
+      window.open(ctaLink, "_blank");
     } else if (setShowPaymentModal) {
+      // For modal payment flow
       setShowPaymentModal();
+    } else if (ctaLink) {
+      // For internal navigation links
+      window.location.href = ctaLink;
     }
   };
 
@@ -133,7 +142,7 @@ export default function PricingCard({
             variant={popular ? "primary" : "outline"}
             className="w-full group"
           >
-            Get Started
+            {ctaText}
           </AnimatedButton>
         </div>
       </div>
