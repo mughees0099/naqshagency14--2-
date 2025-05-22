@@ -22,7 +22,6 @@ export default function BlogPage() {
       try {
         setIsLoading(true);
         const entries = await client.getEntries({ content_type: "blog" });
-        console.log("Fetched blog posts:", entries.items);
 
         const fetchedData = entries.items.map((entry) => ({
           id: entry.sys.id,
