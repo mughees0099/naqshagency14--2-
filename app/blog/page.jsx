@@ -22,13 +22,14 @@ export default function BlogPage() {
       try {
         setIsLoading(true);
         const entries = await client.getEntries({ content_type: "blog" });
+        console.log("Fetched blog posts:", entries.items);
 
         const fetchedData = entries.items.map((entry) => ({
           id: entry.sys.id,
           title: entry.fields.title,
           slug: entry.fields.title.toLowerCase().replace(/\s+/g, "-"),
           image: entry.fields.image?.map((img) => img.fields.file.url) || [],
-          description: entry.fields.description,
+          description: entry.fields.descriptionForHomePage,
           author: entry.fields.author?.fields?.authorName || "Unknown",
           authorImage:
             entry.fields.author?.fields?.authorImage?.fields?.file?.url || null,
@@ -117,11 +118,7 @@ export default function BlogPage() {
                     {featuredPost.title}
                   </h2>
                   <p className="text-gray-600 mb-6">
-                    {featuredPost.description.content[1]?.content[0]?.value.substring(
-                      0,
-                      150
-                    )}
-                    ...
+                    {featuredPost.description.substring(0, 800)}...
                   </p>
                   <Link
                     href={`/blog/${featuredPost.slug}`}
@@ -215,10 +212,7 @@ export default function BlogPage() {
                         {blog.title}
                       </h3>
                       <p className="text-gray-600 mb-4 flex-1">
-                        {blog.description.content[0]?.content[0]?.value.substring(
-                          0,
-                          100
-                        )}
+                        {blog.description.substring(0, 70)}
                         ...
                       </p>
                       <div className="flex items-center mt-auto">
