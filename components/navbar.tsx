@@ -129,11 +129,13 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, X } from "lucide-react";
+import Image from 'next/image';
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { useEffect, useState } from "react";
+import logo from '/public/naqsh-logo.png';
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -156,15 +158,19 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white shadow-md" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-white shadow-md" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className="text-2xl font-bold text-[#e5792c]">naqsh.</span>
+            {/* <span className="text-2xl font-bold text-[#e5792c]">naqsh.</span> */}
+            <Image
+              src={logo}
+              alt="Logo"
+              height={200}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -208,11 +214,10 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`text-lg font-medium transition-colors duration-200 ${
-                    pathname === item.href
+                  className={`text-lg font-medium transition-colors duration-200 ${pathname === item.href
                       ? "text-[#e5792c]"
                       : "text-gray-800 hover:text-[#e5792c]"
-                  }`}
+                    }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.name}
@@ -244,9 +249,8 @@ function NavItem({ item }) {
   return (
     <Link
       href={item.href}
-      className={`text-lg font-medium transition-colors duration-200 ${
-        isActive ? "text-[#e5792c]" : "text-gray-800 hover:text-[#e5792c]"
-      }`}
+      className={`text-lg font-medium transition-colors duration-200 ${isActive ? "text-[#e5792c]" : "text-gray-800 hover:text-[#e5792c]"
+        }`}
     >
       {item.name}
     </Link>

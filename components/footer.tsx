@@ -195,13 +195,13 @@ export default function Footer() {
                 <li className="flex items-start group">
                   <Phone className="w-5 h-5 mr-3 text-[#e5792c] flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                   <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
-                    +1 (555) 123-4567
+                    +15055339557
                   </span>
                 </li>
                 <li className="flex items-start group">
                   <MapPin className="w-5 h-5 mr-3 text-[#e5792c] flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                   <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
-                    123 Design Street, Creative City, 10001
+                    1209 MOUNTAIN RD PL NE STE R ALBUQUERQUE, NM 87110
                   </span>
                 </li>
               </ul>

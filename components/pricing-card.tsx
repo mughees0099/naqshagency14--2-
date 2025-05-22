@@ -12,11 +12,13 @@ interface PricingCardProps {
   description: string;
   features: string[];
   ctaLink: string;
+  ctaText?: string;
   popular?: boolean;
   className?: string;
   setShowPaymentModal?: () => void;
   isEnterprise?: boolean;
   urgencyIndicator?: React.ReactNode;
+  serviceDurationIn?: string;
 }
 
 export default function PricingCard({
@@ -25,11 +27,13 @@ export default function PricingCard({
   description,
   features,
   ctaLink,
+  ctaText = "Get Started",
   popular = false,
   className = "",
   setShowPaymentModal,
   isEnterprise = false,
   urgencyIndicator,
+  serviceDurationIn,
 }: PricingCardProps) {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -40,8 +44,15 @@ export default function PricingCard({
         "https://calendly.com/naqshagencyofficial/brand_consultation",
         "_blank"
       );
+    } else if (ctaLink.startsWith("https://")) {
+      // Handle direct external links, including Stripe payment links
+      window.open(ctaLink, "_blank");
     } else if (setShowPaymentModal) {
+      // For modal payment flow
       setShowPaymentModal();
+    } else if (ctaLink) {
+      // For internal navigation links
+      window.location.href = ctaLink;
     }
   };
 
@@ -72,8 +83,9 @@ export default function PricingCard({
         <h3 className="text-2xl font-bold mb-2 text-center relative z-1">
           {title}
         </h3>
-        <div className="text-3xl font-bold mb-4 text-center relative z-1 transition-colors duration-300 group-hover:text-[#e5792c]">
-          {price}
+        <div className="text-3xl font-bold mb-4 text-center relative z-1 transition-colors duration-300 group-hover:text-[#e5792c] flex items-end justify-center gap-.5">
+          <p>{price}</p>
+          <p className='text-sm text-naqsh-black'>{serviceDurationIn}</p>
         </div>
         <p className="text-gray-600 text-sm text-center mb-6 relative z-1">
           {description}
@@ -130,9 +142,7 @@ export default function PricingCard({
             variant={popular ? "primary" : "outline"}
             className="w-full group"
           >
-            <span className="relative z-10">Get Started</span>
-            <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
-            <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
+            {ctaText}
           </AnimatedButton>
         </div>
       </div>

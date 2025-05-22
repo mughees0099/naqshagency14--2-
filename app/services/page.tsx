@@ -2,6 +2,8 @@ import Image from "next/image"
 import Link from "next/link"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
+import AnimatedButton from '@/components/animated-button'
+import naqshProcess from '/public/naqsh-branding-process.png'
 
 export default function ServicesPage() {
   return (
@@ -9,7 +11,7 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* Header Section */}
-      <section className="bg-[#171717] text-white py-16 md:py-24 mt-16">
+      <section className="bg-[#171717] text-white py-16 md:py-24 mt-20">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
@@ -32,12 +34,13 @@ export default function ServicesPage() {
                 Our team of experts combines strategic thinking with creative excellence to deliver results that drive
                 growth and achieve your business goals.
               </p>
-              <Link
-                href="/contact"
-                className="bg-[#e5792c] text-white rounded-full px-6 py-3 font-medium transition-all hover:bg-[#d06a25] inline-block"
+              <AnimatedButton
+                href='/contact'
+                varient='primary'
+                className='group'
               >
-                Get Started
-              </Link>
+                Get Started 
+              </AnimatedButton>
             </div>
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-[#ededed] p-6 rounded-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
@@ -88,9 +91,9 @@ export default function ServicesPage() {
       <section className="py-16 bg-white">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[400px] md:h-[500px]">
+            <div className="relative h-[400px] md:h-[605px]">
               <Image
-                src="/placeholder.svg?height=500&width=500"
+                src={naqshProcess}
                 alt="Branding Services"
                 fill
                 className="object-cover rounded-lg"
@@ -140,12 +143,14 @@ export default function ServicesPage() {
                   </div>
                 </li>
               </ul>
-              <Link
-                href="/services/branding"
-                className="bg-[#e5792c] text-white rounded-full px-6 py-3 font-medium transition-all hover:bg-[#d06a25] inline-block"
+
+              <AnimatedButton
+              href='/services/branding'
+              variant='primary'
+              className='group'
               >
                 Learn More
-              </Link>
+              </AnimatedButton>
             </div>
           </div>
         </div>
@@ -155,4 +160,3 @@ export default function ServicesPage() {
     </main>
   )
 }
-

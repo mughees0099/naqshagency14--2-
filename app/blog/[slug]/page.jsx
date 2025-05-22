@@ -8,6 +8,7 @@ import { createClient } from "contentful";
 import { useEffect, useState } from "react";
 import { use } from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import AnimatedButton from '@/components/animated-button'
 
 const client = createClient({
   space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
@@ -100,7 +101,7 @@ export default function BlogPostPage({ params }) {
     <main className="min-h-screen flex flex-col">
       <Navbar />
 
-      <section className="bg-[#171717] text-white py-16">
+      <section className="bg-[#171717] text-white py-16 mt-20">
         <div className="container mx-auto">
           <div className="max-w-3xl mx-auto text-center">
             <div className="text-sm text-[#e5792c] mb-2">Branding</div>
@@ -224,9 +225,13 @@ export default function BlogPostPage({ params }) {
               Let's work together to create a powerful brand and web presence
               that drives results for your business.
             </p>
-            <Link href="/contact" className="btn-primary inline-block">
+            <AnimatedButton 
+              href="/contact" 
+              className="group"
+              varient='primary'
+            >
               Get in Touch
-            </Link>
+            </AnimatedButton>
           </div>
         </div>
       </section>

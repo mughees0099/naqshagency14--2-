@@ -1,27 +1,29 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import Navbar from "@/components/navbar";
 import AnimatedButton from "@/components/animated-button";
-import SectionHeading from "@/components/section-heading";
 import AnimatedCard from "@/components/animated-card";
-import ScrollReveal from "@/components/scroll-reveal";
-import PricingCard from "@/components/pricing-card";
+import Footer from "@/components/footer";
+import FaqSection from '@/components/home/FaqSection';
+import BrandLogos from '@/components/shared/BrandLogos'
+import Navbar from "@/components/navbar";
 import PaymentModal from "@/components/payment-modal";
+import PricingCard from "@/components/pricing-card";
+import ScrollReveal from "@/components/scroll-reveal";
+import SectionHeading from "@/components/section-heading";
 import { useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import {
   ArrowRight,
-  Zap,
-  Palette,
-  Code,
-  Search,
   Award,
+  Code,
+  Palette,
+  Search,
   Users,
+  Zap,
 } from "lucide-react";
-import Footer from "@/components/footer";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 export default function Home() {
   const [showPaymentModal, setShowPaymentModal] = useState(false);
@@ -182,56 +184,14 @@ export default function Home() {
       </section>
 
       {/* Clients Section */}
-      <section className="py-12 bg-gray-50">
+      <section className="py-12">
         <div className="container mx-auto">
           <div className="text-center mb-8">
             <p className="text-gray-500 text-sm">
               TRUSTED BY INNOVATIVE COMPANIES
             </p>
           </div>
-
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
-                <Image src="/Lakers.png" height={48} width={96} alt="" />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
-                <Image
-                  src="/metapastry-logo.png"
-                  height={48}
-                  width={96}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
-                <Image
-                  src="/AlpineFoods logo.png"
-                  height={48}
-                  width={96}
-                  alt=""
-                />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
-                <Image src="/Notion.png" height={48} width={96} alt="" />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
-                <Image src="/Adobe.png" height={48} width={96} alt="" />
-              </div>
-            </div>
-            <div className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <div className="w-24 h-12 bg-gray-200 rounded">
-                <Image src="/fiverr.png" height={48} width={96} alt="" />
-              </div>
-            </div>
-          </div>
+          <BrandLogos/>
         </div>
       </section>
 
@@ -314,7 +274,7 @@ export default function Home() {
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#e5792c] opacity-5 rounded-full blur-3xl transform translate-x-1/3 -translate-y-1/3"></div>
               <div className="relative z-10">
                 <div className="flex items-center mb-6">
-                  <div className="w-16 h-16 bg-[#e5792c] rounded-full flex items-center justify-center text-white mr-6 flex-shrink-0">
+                  <div className="text-white mr-1">
                     <span className="text-3xl font-bold">80%</span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold text-white">
@@ -617,7 +577,7 @@ export default function Home() {
 
                 <div className="mt-8 p-6 bg-[#171717] text-white rounded-lg">
                   <p className="text-lg">
-                    💔{" "}
+                    {" "}
                     <span className="font-bold">
                       It's frustrating. It's exhausting.
                     </span>{" "}
@@ -734,13 +694,8 @@ export default function Home() {
                     href="/brand-audit"
                     variant="primary"
                     size="lg"
-                    className="w-full group"
                   >
-                    <span className="relative z-10">
                       Conduct Free Brand Audit
-                    </span>
-                    <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
-                    <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
                   </AnimatedButton>
                 </div>
               </div>
@@ -768,103 +723,107 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-stretch mt-12 relative px-4 gap-8">
-            {/* First Package - Essential Plan */}
-            <div className="w-full md:w-1/3 max-w-sm">
-              <PricingCard
-                title="Essential Plan"
-                price="$4,998"
-                description="Perfect for startups and small businesses looking to establish a professional brand identity."
-                features={[
-                  "Logo Design (3 Concepts)",
-                  "Brand Style Guide",
-                  "Business Card Design",
-                  "Social Media Kit",
-                  "Email Signature",
-                  "1-Page High-Converting Website, Mobile-Optimized & SEO-Ready, Clear CTA & Booking Integration",
-                ]}
-                ctaLink="/payment"
-                className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 pricing-card-essential"
-                setShowPaymentModal={() =>
-                  handleOpenPaymentModal("Essential Plan", "$4,998")
-                }
-                urgencyIndicator={
-                  <div className="mt-4 mb-2 flex justify-center">
-                    <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
-                      <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                      <span className="text-xs text-red-600 font-medium">
-                        Only 2 spots left this month
-                      </span>
-                    </div>
-                  </div>
-                }
-              />
-            </div>
-
-            {/* Popular Package - Business Plan */}
-            <div className="w-full md:w-1/3 max-w-sm relative">
-              <PricingCard
-                title="Business Plan"
-                price="$9,898"
-                description="Comprehensive branding solution for growing businesses ready to make a stronger market impact."
-                features={[
-                  "Logo Design (5 Concepts)",
-                  "Complete Brand Guidelines",
-                  "Social Media Kit",
-                  "Stationery Design Suite",
-                  "Marketing Collateral",
-                  "Content Creation",
-                  "5-Page Custom Website (Home, About, Services, Portfolio, Contact)",
-                  "Advanced SEO Setup & Blog Integration",
-                  "Conversion-Optimized",
-                ]}
-                ctaLink="/payment"
-                popular={true}
-                className="transform transition-all duration-500 hover:-translate-y-2 border-2 border-[#e5792c] h-full pricing-card-business"
-                setShowPaymentModal={() =>
-                  handleOpenPaymentModal("Business Plan", "$9,898")
-                }
-                urgencyIndicator={
-                  <div className="mt-4 mb-2 flex justify-center">
-                    <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
-                      <span className="w-2 h-2 bg-red-500 rounded-full"></span>
-                      <span className="text-xs text-red-600 font-medium">
-                        Only 2 spots left this month
-                      </span>
-                    </div>
-                  </div>
-                }
-              />
-            </div>
-
-            {/* Third Package - Enterprise Plan */}
-            <div className="w-full md:w-1/3 max-w-sm">
-              <PricingCard
-                title="Enterprise Plan"
-                price="Let's Talk"
-                description="All-inclusive branding package for established businesses seeking a complete brand transformation."
-                features={[
-                  "Custom Enterprise Solutions",
-                  "Unlimited Brand Concepts",
-                  "Full Digital Presence",
-                  "Complex Website Development",
-                  "E-commerce Store Creation",
-                  "CRM, or Advanced Funnel Setup",
-                  "Top Marketing Talent Access",
-                  "Advanced Marketing Strategy",
-                  "Dedicated Account Manager",
-                  "Priority Support",
-                  "Flexible Payment Terms",
-                ]}
-                ctaLink="/contact"
-                className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2"
-                setShowPaymentModal={() =>
-                  handleOpenPaymentModal("Enterprise Plan", "Let's Talk")
-                }
-                isEnterprise={true}
-              />
-            </div>
+         <div className="flex flex-col md:flex-row justify-center items-stretch mt-12 relative px-4 gap-8">
+  {/* First Package - Startup Plan */}
+  <div className="w-full md:w-1/3 max-w-sm">
+    <PricingCard
+      title="Startup Plan"
+      price="$4,998"
+      serviceDurationIn='/Year'
+      description="Perfect for startups and small businesses looking to establish a professional brand identity."
+      features={[
+        "Logo Design (3 Concepts)",
+        "Brand Style Guide",
+        "Business Card Design",
+        "Social Media Kit",
+        "Email Signature",
+        "1-Page	High-Converting	Website,	Mobile-Optimized	&	SEO-Ready",
+        "Clear	CTA	&	Booking	Integration", 
+        "Website maintenance &	Support (1 Year)",
+        "Domain	&	Hosting(1	year)"
+      ]}
+      ctaLink="https://buy.stripe.com/cNifZi9Zi3EV8MwbH70gw00"
+      className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2 pricing-card-essential"
+      urgencyIndicator={
+        <div className="mt-4 mb-2 flex justify-center">
+          <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
+            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+            <span className="text-xs text-red-600 font-medium">
+              Only 2 spots left this month
+            </span>
           </div>
+        </div>
+      }
+    />
+  </div>
+
+  {/* Popular Package - Business Plan */}
+  <div className="w-full md:w-1/3 max-w-sm relative">
+    <PricingCard
+      title="Business Plan"
+      price="$9,898"
+      serviceDurationIn='/Year'
+      description="Comprehensive branding solution for growing businesses ready to make a stronger market impact."
+      features={[
+        "Logo Design (5 Concepts)",
+        "Complete Brand Guidelines",
+        "Social Media Kit",
+        "Stationery Design Suite",
+        "Marketing Collateral",
+        "Content Creation",
+        "5-Page Custom High converting website",
+        "Clear CTA & Booking Integration",
+        "Advanced SEO Setup & Blog Integration",
+        "Website maintenance & Support (1 Year)",
+        "Domain & Hosting(1 year)",
+        "Conversion-Optimized"
+      ]}
+     
+      ctaLink="https://buy.stripe.com/00w4gA9Zi1wNaUEdPf0gw01"
+      popular={true}
+      className="transform transition-all duration-500 hover:-translate-y-2 border-2 border-[#e5792c] h-full pricing-card-business"
+      urgencyIndicator={
+        <div className="mt-4 mb-2 flex justify-center">
+          <div className="px-3 py-1 bg-red-50 border border-red-100 rounded-full flex items-center space-x-1 animate-pulse">
+            <span className="w-2 h-2 bg-red-500 rounded-full"></span>
+            <span className="text-xs text-red-600 font-medium">
+              Only 2 spots left this month
+            </span>
+          </div>
+        </div>
+      }
+    />
+  </div>
+
+  {/* Third Package - Enterprise Plan */}
+  <div className="w-full md:w-1/3 max-w-sm">
+    <PricingCard
+      title="Enterprise Plan"
+      price="Let's Talk"
+      description="All-inclusive branding package for established businesses seeking a complete brand transformation."
+      features={[
+        "Custom Enterprise Solutions",
+        "Unlimited Brand Concepts",
+        "Full-Service Graphic Design",
+        "Full Digital Presence",
+        "Complex Website Development",
+        "Mobile	App	Development",
+        "Backend Development & Handling",
+        "E-commerce Store Creation",
+        "CRM, or Advanced Funnel Setup",
+        "Top Marketing Talent Access",
+        "Advanced Marketing Strategy",
+        "Dedicated Account Manager",
+        "Priority Support",
+        "Flexible Payment Terms",
+      ]}
+    
+      ctaLink="https://calendly.com/naqshagencyofficial/brand_consultation"
+      className="border border-gray-200 hover:border-[#e5792c] h-full w-full transition-all duration-500 hover:shadow-xl transform hover:-translate-y-2"
+      isEnterprise={true}
+    />
+  </div>
+</div>
 
           {/* White Labeled Service - Redesigned */}
           <div className="mt-16 max-w-4xl mx-auto">
@@ -914,11 +873,7 @@ export default function Home() {
                   variant="primary"
                   className="whitespace-nowrap group"
                 >
-                  <span className="relative z-10">
                     Schedule a Private Meeting
-                  </span>
-                  <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
-                  <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
                 </AnimatedButton>
               </div>
 
@@ -951,7 +906,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-2xl font-bold mb-2">
                     Brand Identity Redesign
                   </h3>
@@ -981,7 +936,7 @@ export default function Home() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-8 group-hover:translate-y-0 transition-transform duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-12 group-hover:translate-y-0 transition-transform duration-300">
                   <h3 className="text-2xl font-bold mb-2">
                     E-commerce Website Redesign
                   </h3>
@@ -1007,9 +962,7 @@ export default function Home() {
                 variant="primary"
                 className="group"
               >
-                <span className="relative z-10">View All Projects</span>
-                <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
-                <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
+                View All Projects
               </AnimatedButton>
             </ScrollReveal>
           </div>
@@ -1029,9 +982,8 @@ export default function Home() {
           <div className="mt-12 relative">
             {/* Connection line for desktop */}
             <div className="hidden md:block absolute top-28 left-0 right-0 h-0.5 bg-gray-200 z-0"></div>
-
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
-              <div className="bg-white p-6 rounded-lg shadow-sm relative z-10">
+              <div className="hover:-translate-y-1 translate-y-0 transition hover:shadow-sm duration-300 bg-white p-6 rounded-lg shadow-sm relative z-10">
                 <div className="w-16 h-16 bg-[#e5792c] rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
                   1
                 </div>
@@ -1044,7 +996,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-sm relative z-10">
+              <div className="hover:-translate-y-1 translate-y-0 transition hover:shadow-sm duration-300 bg-white p-6 rounded-lg shadow-sm relative z-10">
                 <div className="w-16 h-16 bg-[#e5792c] rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
                   2
                 </div>
@@ -1055,7 +1007,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-sm relative z-10">
+              <div className=" hover:-translate-y-1 translate-y-0 transition hover:shadow-sm duration-300 bg-white p-6 rounded-lg shadow-sm relative z-10">
                 <div className="w-16 h-16 bg-[#e5792c] rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
                   3
                 </div>
@@ -1066,7 +1018,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-sm relative z-10">
+              <div className="hover:-translate-y-1 translate-y-0 transition hover:shadow-sm bg-white p-6 rounded-lg shadow-sm relative z-10">
                 <div className="w-16 h-16 bg-[#e5792c] rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
                   4
                 </div>
@@ -1079,7 +1031,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <div className="bg-white p-6 rounded-lg shadow-sm relative z-10">
+              <div className="hover:-translate-y-1 translate-y-0 transition hover:shadow-sm  bg-white p-6 rounded-lg shadow-sm relative z-10">
                 <div className="w-16 h-16 bg-[#e5792c] rounded-full flex items-center justify-center text-white text-2xl font-bold mb-4 mx-auto">
                   5
                 </div>
@@ -1382,504 +1334,7 @@ export default function Home() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-16 md:py-24 bg-white">
-        <div className="container mx-auto">
-          <ScrollReveal>
-            <SectionHeading
-              title="Frequently Asked Questions"
-              subtitle="Everything you need to know about our premium branding and web solutions"
-            />
-          </ScrollReveal>
-
-          <div className="mt-12 max-w-4xl mx-auto">
-            <ScrollReveal animation="slide-up" delay={100}>
-              <div className="space-y-6">
-                {/* FAQ Item 1 */}
-                <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        What are some ways your services help me make money?
-                      </h3>
-                      <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18 12H6"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-gray-600">
-                      <p>
-                        Our premium branding and web development services
-                        position your business for success by creating a strong,
-                        professional identity that attracts and retains
-                        customers. A well-crafted brand and website increase
-                        credibility, boost conversion rates, and help you stand
-                        out in a competitive market—ultimately driving more
-                        sales and revenue.
-                      </p>
-                    </div>
-                  </details>
-                </div>
-
-                {/* FAQ Item 2 */}
-                <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        How can your services help me save money?
-                      </h3>
-                      <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18 12H6"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-gray-600">
-                      <p>
-                        By investing in high-quality branding and web
-                        development from the start, you avoid costly redesigns,
-                        ineffective marketing strategies, and lost opportunities
-                        due to a weak brand presence. A strategic, well-designed
-                        brand and website reduce advertising costs by naturally
-                        drawing in customers and improving retention.
-                      </p>
-                    </div>
-                  </details>
-                </div>
-
-                {/* FAQ Item 3 */}
-                <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        How much time can you save me, and what could I do with
-                        that time?
-                      </h3>
-                      <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18 12H6"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-gray-600">
-                      <p>
-                        We take care of the entire branding and web development
-                        process so you don't have to spend weeks or months
-                        trying to figure it out yourself. Instead of struggling
-                        with DIY solutions, you can focus on growing your
-                        business, serving customers, and scaling your operations
-                        while we handle your brand's digital presence.
-                      </p>
-                    </div>
-                  </details>
-                </div>
-
-                {/* FAQ Item 4 */}
-                <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        What is something I don't have to do anymore once I get
-                        your service?
-                      </h3>
-                      <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18 12H6"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-gray-600">
-                      <p>
-                        Once you work with us, you no longer have to worry about
-                        designing your own logo, website, or marketing
-                        materials. You can stop stressing over inconsistencies
-                        in branding, low website traffic, or outdated
-                        design—everything will be taken care of professionally,
-                        ensuring your brand remains strong and competitive.
-                      </p>
-                    </div>
-                  </details>
-                </div>
-
-                {/* FAQ Item 5 */}
-                <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        What physical pain do you eliminate for me?
-                      </h3>
-                      <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18 12H6"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-gray-600">
-                      <p>
-                        We eliminate the stress and frustration that come with
-                        sitting for hours trying to build a website, design
-                        graphics, or troubleshoot technical issues. No more eye
-                        strain, headaches, or back pain from spending endless
-                        hours on DIY branding efforts.
-                      </p>
-                    </div>
-                  </details>
-                </div>
-
-                {/* FAQ Item 6 */}
-                <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        What mental pain do you eliminate for me?
-                      </h3>
-                      <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18 12H6"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-gray-600">
-                      <p>
-                        We take away the overwhelming pressure of building a
-                        professional brand from scratch. You won't have to deal
-                        with decision fatigue, confusion over design choices, or
-                        the fear of making a bad impression. Our expertise
-                        ensures your brand looks premium and resonates with your
-                        audience.
-                      </p>
-                    </div>
-                  </details>
-                </div>
-
-                {/* FAQ Item 7 */}
-                <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        What are the ways your services can help me feel more
-                        comfortable?
-                      </h3>
-                      <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18 12H6"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-gray-600">
-                      <p>
-                        With a professionally crafted brand and website, you
-                        gain confidence in how your business is perceived. You
-                        can network, promote your brand, and pitch to clients
-                        without second-guessing your visuals or messaging,
-                        knowing that your branding reflects quality and
-                        professionalism.
-                      </p>
-                    </div>
-                  </details>
-                </div>
-
-                {/* FAQ Item 8 */}
-                <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        What are some ways your services are going to help me be
-                        the envy of my friends and/or feel more loved by my
-                        family?
-                      </h3>
-                      <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18 12H6"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-gray-600">
-                      <p>
-                        A strong brand and a beautifully designed website give
-                        you a level of credibility that others admire. Friends
-                        and family will see your business thrive, respect your
-                        entrepreneurial journey, and celebrate your success.
-                        Your business will stand out as an aspirational example
-                        in your circle.
-                      </p>
-                    </div>
-                  </details>
-                </div>
-
-                {/* FAQ Item 9 */}
-                <div className="bg-gray-50 rounded-xl overflow-hidden transition-all duration-300 hover:shadow-md">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer">
-                      <h3 className="text-xl font-bold text-gray-800">
-                        How will buying your services make me feel more popular
-                        and increase my social status?
-                      </h3>
-                      <span className="relative flex-shrink-0 ml-1.5 w-5 h-5">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-100 group-open:opacity-0 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                          />
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="absolute inset-0 w-5 h-5 opacity-0 group-open:opacity-100 transition-opacity duration-300"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M18 12H6"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <div className="px-6 pb-6 text-gray-600">
-                      <p>
-                        A professionally branded business elevates your status
-                        in both professional and social circles. Whether it's
-                        networking events, social media, or word-of-mouth
-                        referrals, people will recognize your business as
-                        premium and high-value. Your success story will enhance
-                        your influence and authority in your industry.
-                      </p>
-                    </div>
-                  </details>
-                </div>
-              </div>
-            </ScrollReveal>
-
-            <div className="mt-12 text-center">
-              <ScrollReveal animation="fade" delay={200}>
-                <AnimatedButton
-                  href="https://calendly.com/naqshagencyofficial/brand_consultation"
-                  variant="primary"
-                  className="group"
-                  external={true}
-                >
-                  <span className="relative z-10">
-                    Schedule a Free Consultation
-                  </span>
-                  <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
-                  <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
-                </AnimatedButton>
-              </ScrollReveal>
-            </div>
-          </div>
-        </div>
-      </section>
+     <FaqSection/>
 
       {/* Contact Section */}
       <section className="py-16 md:py-24">
@@ -1945,9 +1400,7 @@ export default function Home() {
                   type="submit"
                   className="group"
                 >
-                  <span className="relative z-10">Send Message</span>
-                  <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left opacity-10"></span>
-                  <span className="absolute -inset-[3px] rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 origin-center bg-white opacity-10 group-hover:opacity-0 delay-100"></span>
+                  Send Message
                 </AnimatedButton>
               </form>
             </ScrollReveal>
