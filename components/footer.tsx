@@ -1,6 +1,14 @@
-import Link from "next/link"
-import { Linkedin, Instagram, Twitter, Mail, Phone, MapPin, ArrowRight } from "lucide-react"
-import ScrollReveal from "./scroll-reveal"
+import Link from "next/link";
+import {
+  Linkedin,
+  Instagram,
+  Twitter,
+  Mail,
+  Phone,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
+import ScrollReveal from "./scroll-reveal";
 
 export default function Footer() {
   return (
@@ -11,9 +19,12 @@ export default function Footer() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <ScrollReveal animation="slide-left">
               <div>
-                <h3 className="text-2xl font-semibold mb-4">Stay in the loop</h3>
+                <h3 className="text-2xl font-semibold mb-4">
+                  Stay in the loop
+                </h3>
                 <p className="text-gray-400 mb-0">
-                  Subscribe to our newsletter for the latest insights on branding, web design, and digital marketing.
+                  Subscribe to our newsletter for the latest insights on
+                  branding, web design, and digital marketing.
                 </p>
               </div>
             </ScrollReveal>
@@ -31,7 +42,9 @@ export default function Footer() {
                     <span className="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left opacity-10"></span>
                   </button>
                 </div>
-                <p className="text-xs text-gray-500 mt-2">We respect your privacy. Unsubscribe at any time.</p>
+                <p className="text-xs text-gray-500 mt-2">
+                  We respect your privacy. Unsubscribe at any time.
+                </p>
               </div>
             </ScrollReveal>
           </div>
@@ -50,7 +63,8 @@ export default function Footer() {
                 </span>
               </div>
               <p className="text-gray-400 mb-6">
-                Premium branding and web solutions to elevate your business and drive growth.
+                Premium branding and web solutions to elevate your business and
+                drive growth.
               </p>
               <div className="flex space-x-4">
                 <a
@@ -84,7 +98,10 @@ export default function Footer() {
               <h3 className="text-lg font-semibold mb-6">Quick Links</h3>
               <ul className="space-y-4">
                 <li>
-                  <Link href="/" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                  <Link
+                    href="/"
+                    className="text-gray-400 hover:text-white transition-colors flex items-center group"
+                  >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1" />
                     Home
                   </Link>
@@ -144,7 +161,7 @@ export default function Footer() {
               <ul className="space-y-4">
                 <li>
                   <Link
-                    href="/services/branding"
+                    href="/services"
                     className="text-gray-400 hover:text-white transition-colors flex items-center group"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1" />
@@ -153,7 +170,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/services/web-design"
+                    href="/services"
                     className="text-gray-400 hover:text-white transition-colors flex items-center group"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1" />
@@ -162,7 +179,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/services/web-development"
+                    href="/services"
                     className="text-gray-400 hover:text-white transition-colors flex items-center group"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1" />
@@ -171,7 +188,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/services/seo"
+                    href="/services"
                     className="text-gray-400 hover:text-white transition-colors flex items-center group"
                   >
                     <ArrowRight className="w-3 h-3 mr-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-0 group-hover:translate-x-1" />
@@ -212,9 +229,10 @@ export default function Footer() {
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
-              &copy; {new Date().getFullYear()} Naqsh Agency. All rights reserved.
+              &copy; {new Date().getFullYear()} Naqsh Agency. All rights
+              reserved.
             </p>
-            <div className="flex space-x-6">
+            {/* <div className="flex space-x-6">
               <Link
                 href="/privacy-policy"
                 className="text-gray-400 text-sm hover:text-white transition-colors duration-300"
@@ -227,11 +245,10 @@ export default function Footer() {
               >
                 Terms of Service
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }
-
