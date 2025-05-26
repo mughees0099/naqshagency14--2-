@@ -206,7 +206,7 @@ export default function Footer() {
                 <li className="flex items-start group">
                   <Mail className="w-5 h-5 mr-3 text-[#e5792c] flex-shrink-0 mt-1 transition-transform duration-300 group-hover:scale-110" />
                   <span className="text-gray-400 group-hover:text-white transition-colors duration-300">
-                    info@naqsh.agency
+                    connect@naqsh.agency
                   </span>
                 </li>
                 <li className="flex items-start group">
